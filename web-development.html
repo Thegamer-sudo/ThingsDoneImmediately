@@ -7,16 +7,113 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/site.css">
+    <style>
+        .service-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,215,0,0.1);
+            border: 2px solid #ffb800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 40px;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: #ffb800;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Bebas Neue';
+        }
+
+        .portfolio-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,215,0,0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .portfolio-item:hover {
+            border-color: #ffb800;
+            transform: translateY(-5px);
+        }
+
+        .btn-contact-primary {
+            background: linear-gradient(135deg, #ffb800 0%, #e6a600 100%);
+            color: #000;
+            border: none;
+            font-weight: 700;
+            padding: 14px 35px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-contact-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-contact-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-contact-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+        }
+
+        .badge.bg-gold {
+            background: #ffb800 !important;
+            color: #000 !important;
+            margin: 0 5px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Fixed Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <span class="brand-accent">Things Done</span> Immediately
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
@@ -26,10 +123,10 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Services
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="servicesDropdown">
                             <li><a class="dropdown-item" href="web-development.html">Web Development</a></li>
                             <li><a class="dropdown-item" href="automation.html">AI Automation</a></li>
                             <li><a class="dropdown-item" href="branding.html">Brand & Marketing</a></li>
@@ -52,7 +149,7 @@
             <h1 class="display-1 gold-text mb-4">Web Development</h1>
             <p class="lead fs-3 mb-4">Your Online Presence Is Your First Impression</p>
             <p class="fs-5 mb-5">Engage more clients, look professional, and scale globally with custom websites that convert.</p>
-            <a href="https://wa.me/27763621131?text=Hi! I'm interested in web development services" 
+            <a href="https://wa.me/27763621131?text=Hi! I'm interested in web development services"
                class="btn btn-contact-primary btn-lg" target="_blank">
                 🌐 Start My Project
             </a>
@@ -68,7 +165,7 @@
                     <p class="lead">In today's digital world, your website is your 24/7 sales representative.</p>
                 </div>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-md-4 text-center">
                     <div class="feature-icon">🌐</div>
@@ -98,7 +195,7 @@
                     <p class="lead">Fast, efficient, and results-driven - just like our name promises.</p>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-6">
                     <div class="process-step">
@@ -106,21 +203,21 @@
                         <h4 class="gold-text mb-3">Plan & Strategy</h4>
                         <p>We analyze your business goals, target audience, and competitive landscape to create a strategic roadmap for your digital presence.</p>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <h4 class="gold-text mb-3">Design & UX</h4>
                         <p>Our designers create stunning, user-friendly interfaces that reflect your brand and guide visitors toward conversion.</p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6">
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <h4 class="gold-text mb-3">Develop & Build</h4>
                         <p>Using modern technologies like ASP.NET Core, we build fast, secure, and scalable websites optimized for performance.</p>
                     </div>
-                    
+
                     <div class="process-step">
                         <div class="step-number">4</div>
                         <h4 class="gold-text mb-3">Launch & Support</h4>
@@ -139,15 +236,15 @@
                     <h2 class="gold-text mb-3">Recent Project</h2>
                 </div>
             </div>
-            
+
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="portfolio-item text-center">
                         <h4 class="gold-text mb-3">Elite Health Club</h4>
                         <p class="mb-3">Complete fitness center website with membership system and online payments.</p>
-                        <span class="badge bg-gold text-dark">ASP.NET Core</span>
-                        <span class="badge bg-gold text-dark">Bootstrap 5</span>
-                        <span class="badge bg-gold text-dark">Payment Integration</span>
+                        <span class="badge bg-gold">ASP.NET Core</span>
+                        <span class="badge bg-gold">Bootstrap 5</span>
+                        <span class="badge bg-gold">Payment Integration</span>
                     </div>
                 </div>
             </div>
@@ -160,11 +257,11 @@
             <h2 class="gold-text mb-4">Ready to Build Your Digital Presence?</h2>
             <p class="lead mb-4">Let's create a website that not only looks amazing but drives real business results.</p>
             <div class="service-cta-buttons">
-                <a href="https://wa.me/27763621131?text=Hi! I want to discuss my website project" 
+                <a href="https://wa.me/27763621131?text=Hi! I want to discuss my website project"
                    class="btn btn-contact-primary btn-lg" target="_blank">
                     💬 Chat on WhatsApp
                 </a>
-                <a href="mailto:goodenough245@gmail.com?subject=Website Project Inquiry" 
+                <a href="mailto:goodenough245@gmail.com?subject=Website Project Inquiry"
                    class="btn btn-contact-primary btn-lg">
                     📧 Send Email
                 </a>

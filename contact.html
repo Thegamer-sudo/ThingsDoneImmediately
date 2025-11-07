@@ -3,130 +3,98 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact - Things Done Immediately</title>
+    <title>Success Stories - Things Done Immediately</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/site.css">
     <style>
-        .contact-hero {
+        .testimonials-hero {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             padding: 150px 0 100px;
             text-align: center;
         }
 
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .contact-card {
+        .case-study {
             background: rgba(255,255,255,0.05);
             border: 1px solid #333;
             border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .contact-card:hover {
-            border-color: #ffb800;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.3);
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 50px;
-        }
-
-        .form-control {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid #333;
-            color: #fff;
-            border-radius: 8px;
-            padding: 12px 15px;
-            margin-bottom: 20px;
+            padding: 40px;
+            margin: 40px 0;
             transition: all 0.3s ease;
         }
 
-        .form-control:focus {
-            background: rgba(255,255,255,0.15);
+        .case-study:hover {
             border-color: #ffb800;
-            color: #fff;
-            box-shadow: 0 0 0 0.2rem rgba(255,184,0,0.25);
         }
 
-        .form-control::placeholder {
-            color: rgba(255,255,255,0.6);
+        .expandable-section {
+            margin: 25px 0;
         }
 
-        .form-label {
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .response-time {
+        .expand-toggle {
             background: rgba(255,184,0,0.1);
             border: 1px solid #ffb800;
+            color: #ffb800;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expand-toggle:hover {
+            background: #ffb800;
+            color: #000;
+        }
+
+        .expand-content {
+            display: none;
+            padding: 25px;
+            background: rgba(42,42,42,0.6);
             border-radius: 10px;
-            padding: 20px;
-            text-align: center;
+            margin-top: 15px;
+            border-left: 4px solid #ffb800;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: rgba(255,184,0,0.2);
+            color: #ffb800;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #ffb800;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 40px;
             margin: 30px 0;
         }
 
-        .guarantee-badge {
-            background: #ffb800;
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 700;
-            display: inline-block;
-            margin: 10px 0;
-        }
-
-        .btn-contact-primary {
-            background: linear-gradient(135deg, #ffb800 0%, #e6a600 100%);
-            color: #000;
-            border: none;
-            font-weight: 700;
-            padding: 14px 35px;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-contact-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
+        .portfolio-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 30px;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
+            transition: all 0.3s ease;
         }
 
-        .btn-contact-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-contact-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+        .portfolio-item:hover {
+            border-color: #ffb800;
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -169,154 +137,158 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="contact-hero">
+    <section class="testimonials-hero">
         <div class="container">
-            <h1 class="display-1 gold-text mb-4">Let's Build Something Great</h1>
-            <p class="lead fs-3 mb-4">Ready to build? Tell us what you need done — immediately.</p>
-            <p class="fs-5">We respond within 1 hour during business hours. Your project starts the moment we connect.</p>
+            <h1 class="display-1 gold-text mb-4">Real Work. Real Results.</h1>
+            <p class="lead fs-3 mb-4">See how we deliver immediate value to businesses</p>
         </div>
     </section>
 
-    <!-- Contact Methods -->
+    <!-- Elite Health Club Case Study -->
     <section class="py-5">
         <div class="container py-5">
-            <div class="contact-methods">
-                <!-- WhatsApp -->
-                <div class="contact-card">
-                    <div class="contact-icon">💬</div>
-                    <h3 class="gold-text mb-3">WhatsApp Chat</h3>
-                    <p class="mb-4">Fastest way to get started. Send us a message and we'll respond immediately.</p>
-                    <a href="https://wa.me/27763621131?text=Hi! I'm interested in your services and would like to discuss my project"
-                       class="btn btn-tdi-outline" target="_blank">
-                        Start Chat on WhatsApp
-                    </a>
-                    <p class="mt-3 text-muted">Typically respond in minutes</p>
+            <div class="case-study">
+                <div class="row align-items-center mb-4">
+                    <div class="col-lg-8">
+                        <h2 class="gold-text mb-3">Elite Health Club</h2>
+                        <p class="fs-5">Complete digital transformation for a premium fitness center</p>
+                    </div>
                 </div>
 
-                <!-- Email -->
-                <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <h3 class="gold-text mb-3">Email Us</h3>
-                    <p class="mb-4">Prefer email? Send us your project details and we'll get back to you with a proposal.</p>
-                    <a href="mailto:goodenough245@gmail.com?subject=Project Inquiry&body=Hi! I'd like to discuss my project requirements."
-                       class="btn btn-tdi-outline">
-                        Send Email
-                    </a>
-                    <p class="mt-3 text-muted">Response within 2 hours</p>
+                <!-- The Challenge - Expandable -->
+                <div class="expandable-section">
+                    <div class="expand-toggle" onclick="toggleSection('challenge')">
+                        <span>📋 The Challenge</span>
+                        <span>+</span>
+                    </div>
+                    <div class="expand-content" id="challenge">
+                        <p>Elite Health Club needed to modernize their entire digital presence to handle growing membership demands and streamline their operations.</p>
+                        <ul>
+                            <li>Outdated website hurting credibility</li>
+                            <li>Manual membership processing causing delays</li>
+                            <li>No online booking system for classes</li>
+                            <li>Inefficient payment collection methods</li>
+                            <li>Poor member communication systems</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Project Form -->
-                <div class="contact-card">
-                    <div class="contact-icon">📋</div>
-                    <h3 class="gold-text mb-3">Project Brief</h3>
-                    <p class="mb-4">Have a detailed project? Fill out our brief form for a comprehensive quote.</p>
-                    <a href="#project-form" class="btn btn-tdi-outline">
-                        Fill Project Brief
-                    </a>
-                    <p class="mt-3 text-muted">Detailed proposal within 24 hours</p>
+                <!-- Our Solution - Expandable -->
+                <div class="expandable-section">
+                    <div class="expand-toggle" onclick="toggleSection('solution')">
+                        <span>🛠️ What We Built</span>
+                        <span>+</span>
+                    </div>
+                    <div class="expand-content" id="solution">
+                        <p>We delivered a complete digital ecosystem tailored to their specific needs:</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">ASP.NET Core MVC</span>
+                            <span class="tech-badge">Bootstrap 5</span>
+                            <span class="tech-badge">Custom Booking System</span>
+                            <span class="tech-badge">Member Portal</span>
+                            <span class="tech-badge">Payment Integration</span>
+                            <span class="tech-badge">Email Automation</span>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Custom Website</h5>
+                                <p>Modern, responsive design showcasing facilities and services with optimized user experience.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Membership System</h5>
+                                <p>Secure member area with profile management, payment history, and class scheduling.</p>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Booking Engine</h5>
+                                <p>Real-time class scheduling with capacity management and automatic reminders.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Admin Dashboard</h5>
+                                <p>Complete backend system for managing members, classes, payments, and communications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Result - Expandable -->
+                <div class="expandable-section">
+                    <div class="expand-toggle" onclick="toggleSection('result')">
+                        <span>🎯 The Outcome</span>
+                        <span>+</span>
+                    </div>
+                    <div class="expand-content" id="result">
+                        <p>The transformation led to significant operational improvements and member satisfaction.</p>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Operational Efficiency</h5>
+                                <p>Dramatically reduced administrative workload through automation and streamlined processes.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Member Experience</h5>
+                                <p>Seamless digital experience from signup to class booking and payments.</p>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Business Growth</h5>
+                                <p>Enhanced digital presence attracted new members and improved retention.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="gold-text">Ongoing Partnership</h5>
+                                <p>Continued collaboration for maintenance and feature enhancements.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Response Time Guarantee -->
-            <div class="response-time">
-                <h3 class="gold-text mb-3">🚀 Immediate Response Guarantee</h3>
-                <p class="mb-3">We live up to our name. Contact us now and get a response within 1 hour during business hours.</p>
-                <div class="guarantee-badge">1-HOUR RESPONSE TIME</div>
+            <!-- Client Testimonial -->
+            <div class="text-center mt-5">
+                <h3 class="gold-text mb-4">What Our Client Says</h3>
+                <div class="testimonial-card">
+                    <p class="fs-5 mb-4">"Things Done Immediately delivered exactly what we needed - a professional, functional website that works for our business. The attention to detail and understanding of our specific requirements was impressive."</p>
+                    <h5 class="gold-text mb-1">[Client Name]</h5>
+                    <p class="mb-0">[Position], Elite Health Club</p>
+                    <p class="text-muted mt-2">*Actual client details available upon request</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form -->
-    <section class="py-5" style="background: rgba(255,184,0,0.05);" id="project-form">
+    <!-- Coming Soon Projects -->
+    <section class="py-5" style="background: rgba(255,184,0,0.05);">
         <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-form">
-                        <h2 class="gold-text text-center mb-5">Tell Us About Your Project</h2>
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="gold-text mb-4">More Case Studies Coming Soon</h2>
+                    <p class="lead mb-5">We're continuously delivering value to businesses across industries</p>
+                </div>
+            </div>
 
-                        <form id="projectContactForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="firstName" class="form-label">First Name *</label>
-                                        <input type="text" class="form-control" id="firstName" name="firstName" required placeholder="Your first name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="lastName" class="form-label">Last Name *</label>
-                                        <input type="text" class="form-control" id="lastName" name="lastName" required placeholder="Your last name">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="email" class="form-label">Email *</label>
-                                        <input type="email" class="form-control" id="email" name="email" required placeholder="your.email@example.com">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="phone" class="form-label">Phone</label>
-                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+1 (555) 123-4567">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="company" class="form-label">Company / Business</label>
-                                <input type="text" class="form-control" id="company" name="company" placeholder="Your business name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="service" class="form-label">Service Interested In *</label>
-                                <select class="form-control" id="service" name="service" required>
-                                    <option value="">Select a service...</option>
-                                    <option value="web-development">Web Development & Branding</option>
-                                    <option value="automation">AI Automation & Systems</option>
-                                    <option value="branding">Brand & Marketing Systems</option>
-                                    <option value="multiple">Multiple Services</option>
-                                    <option value="not-sure">Not Sure - Need Consultation</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="budget" class="form-label">Project Budget Range *</label>
-                                <select class="form-control" id="budget" name="budget" required>
-                                    <option value="">Select budget range...</option>
-                                    <option value="1k-3k">$1,000 - $3,000</option>
-                                    <option value="3k-7k">$3,000 - $7,000</option>
-                                    <option value="7k-15k">$7,000 - $15,000</option>
-                                    <option value="15k-plus">$15,000+</option>
-                                    <option value="not-sure">Not Sure - Need Quote</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="timeline" class="form-label">Desired Timeline *</label>
-                                <select class="form-control" id="timeline" name="timeline" required>
-                                    <option value="">Select timeline...</option>
-                                    <option value="immediately">Immediately (ASAP)</option>
-                                    <option value="2-weeks">Within 2 Weeks</option>
-                                    <option value="1-month">Within 1 Month</option>
-                                    <option value="flexible">Flexible Timeline</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message" class="form-label">Project Details *</label>
-                                <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Tell us about your project goals, challenges, and what you'd like to achieve..."></textarea>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <button type="submit" class="btn-contact-primary btn-lg">
-                                    🚀 Send Project Brief
-                                </button>
-                                <p class="mt-3 text-muted">We'll get back to you within 1 hour during business hours</p>
-                            </div>
-                        </form>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="portfolio-item text-center">
+                        <h5 class="gold-text">Restaurant Booking System</h5>
+                        <p class="text-muted">Launching next month</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="portfolio-item text-center">
+                        <h5 class="gold-text">AI Customer Service</h5>
+                        <p class="text-muted">Case study in progress</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="portfolio-item text-center">
+                        <h5 class="gold-text">E-commerce Automation</h5>
+                        <p class="text-muted">Coming soon</p>
                     </div>
                 </div>
             </div>
@@ -326,12 +298,10 @@
     <!-- Final CTA -->
     <section class="py-5 text-center">
         <div class="container py-5">
-            <h2 class="gold-text mb-4">Don't Wait. Automate.</h2>
-            <p class="lead mb-5">Every day you wait is another day of manual work, missed opportunities, and growth left on the table.</p>
-
-            <a href="https://wa.me/27763621131?text=Hi! I'm ready to start my project immediately. Let's talk!"
-               class="btn btn-tdi-outline btn-lg" target="_blank">
-                💬 Start WhatsApp Chat Now
+            <h2 class="gold-text mb-4">Ready to Become Our Next Success Story?</h2>
+            <p class="lead mb-5">Let's build something amazing together. Your success is our success.</p>
+            <a href="contact.html" class="btn btn-contact-primary btn-lg">
+                🚀 Start Your Project
             </a>
         </div>
     </section>
@@ -414,49 +384,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/site.js"></script>
     <script>
-        document.getElementById('projectContactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId);
+            const toggle = content.previousElementSibling;
+            const plusMinus = toggle.querySelector('span:last-child');
 
-            // Get form data
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                company: document.getElementById('company').value,
-                service: document.getElementById('service').value,
-                budget: document.getElementById('budget').value,
-                timeline: document.getElementById('timeline').value,
-                message: document.getElementById('message').value
-            };
-
-            // Create WhatsApp message
-            const whatsappMessage = `New Project Inquiry from TDI Website:
-
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company}
-
-Service: ${formData.service}
-Budget: ${formData.budget}
-Timeline: ${formData.timeline}
-
-Project Details:
-${formData.message}
-
----
-Sent via thingsdoneimmediately.com`;
-
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-
-            // Redirect to WhatsApp
-            window.open(`https://wa.me/27763621131?text=${encodedMessage}`, '_blank');
-
-            // Show success message
-            alert('Thank you! Redirecting to WhatsApp to send your project details...');
-        });
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                plusMinus.textContent = '+';
+            } else {
+                content.style.display = 'block';
+                plusMinus.textContent = '-';
+            }
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,225 @@
+﻿@{
+    ViewData["Title"] = "AI Automation - Things Done Immediately";
+}
+
+<style>
+    .automation-hero {
+        background: linear-gradient(135deg, var(--tdi-dark) 0%, var(--tdi-darker) 100%);
+        padding: 150px 0 100px;
+        text-align: center;
+    }
+
+    .flow-diagram {
+        background: rgba(255,215,0,0.05);
+        border: 2px solid var(--tdi-accent);
+        padding: 40px;
+        border-radius: 10px;
+        margin: 40px 0;
+    }
+
+    .flow-step {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        padding: 20px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+    }
+
+    .flow-arrow {
+        color: var(--tdi-accent);
+        font-size: 2rem;
+        margin: 0 20px;
+    }
+
+    .tool-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,215,0,0.3);
+        border-radius: 10px;
+        padding: 25px;
+        text-align: center;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+
+        .tool-card:hover {
+            border-color: var(--tdi-accent);
+            transform: translateY(-5px);
+        }
+
+    .tool-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .use-case {
+        background: rgba(255,255,255,0.03);
+        border-left: 4px solid var(--tdi-accent);
+        padding: 25px;
+        margin: 20px 0;
+    }
+
+    /* SOLID BUTTON STYLES */
+    .btn-contact-primary {
+        background: linear-gradient(135deg, var(--tdi-accent) 0%, var(--tdi-accent-dark) 100%);
+        color: var(--tdi-dark);
+        border: none;
+        font-weight: 700;
+        padding: 14px 35px;
+        border-radius: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-contact-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-contact-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-contact-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--tdi-accent-glow);
+        }
+</style>
+
+<!-- Hero Section -->
+<section class="automation-hero">
+    <div class="container">
+        <h1 class="display-1 gold-text mb-4">AI Automation</h1>
+        <p class="lead fs-3 mb-4">Let AI Handle the Repetition So You Can Handle Growth</p>
+        <p class="fs-5 mb-5">Smart workflows that eliminate manual tasks, reduce errors, and scale your business operations.</p>
+        <a href="https://wa.me/+27763621131?text=Hi! I'd like to book a call to discuss automation for my business"
+           class="btn btn-contact-primary btn-lg" target="_blank">
+            📞 Book a Call
+        </a>
+    </div>
+</section>
+
+<!-- What Automation Can Do -->
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="gold-text mb-3">What Automation Can Do For Your Business</h2>
+                <p class="lead">Transform time-consuming manual processes into efficient, error-free automated systems.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="use-case">
+                    <h4 class="gold-text mb-3">📧 Automated Email Replies</h4>
+                    <p>Smart email sorting, auto-responses, and lead qualification that works 24/7.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="use-case">
+                    <h4 class="gold-text mb-3">📅 Smart Booking & Reminders</h4>
+                    <p>Automated appointment scheduling, confirmations, and reminder systems.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="use-case">
+                    <h4 class="gold-text mb-3">👥 Lead Tracking & Management</h4>
+                    <p>Automatic lead capture, scoring, and distribution to your sales team.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="use-case">
+                    <h4 class="gold-text mb-3">🔄 CRM Updates & Sync</h4>
+                    <p>Seamless data synchronization between your apps and CRM systems.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools We Use -->
+<section class="py-5" style="background: rgba(255,215,0,0.05);">
+    <div class="container py-5">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="gold-text mb-3">Automation Tools We Master</h2>
+                <p class="lead">Leveraging the best platforms to build robust automation solutions.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="tool-card">
+                    <div class="tool-icon">⚡</div>
+                    <h4 class="gold-text mb-3">Make.com</h4>
+                    <p>Visual workflow automation for connecting apps and services without coding.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tool-card">
+                    <div class="tool-icon">🤖</div>
+                    <h4 class="gold-text mb-3">n8n</h4>
+                    <p>Powerful open-source workflow automation with advanced customization.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tool-card">
+                    <div class="tool-icon">🧠</div>
+                    <h4 class="gold-text mb-3">AI Integrations</h4>
+                    <p>Custom AI solutions with OpenAI, custom models, and smart data processing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Advanced AI Systems -->
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="gold-text mb-4">When to Upgrade to Full AI Systems</h2>
+                <div class="use-case mb-4">
+                    <h4 class="gold-text">📊 Predictive Analytics</h4>
+                    <p>AI that analyzes your data to predict customer behavior, sales trends, and operational bottlenecks.</p>
+                </div>
+                <div class="use-case mb-4">
+                    <h4 class="gold-text">💬 Intelligent Chat Systems</h4>
+                    <p>Advanced chatbots that handle complex customer queries and provide personalized responses.</p>
+                </div>
+                <div class="use-case">
+                    <h4 class="gold-text">🎯 Automated Decision Making</h4>
+                    <p>AI systems that make data-driven decisions about pricing, inventory, and customer prioritization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-5 text-center" style="background: rgba(255,215,0,0.05);">
+    <div class="container py-5">
+        <h2 class="gold-text mb-4">Ready to Automate Your Business?</h2>
+        <p class="lead mb-4">Stop wasting time on repetitive tasks. Let us build systems that work while you sleep.</p>
+        <div class="service-cta-buttons">
+            <a href="https://wa.me/27763621131?text=Hi! I'd like to book a call to discuss automation"
+               class="btn btn-contact-primary btn-lg" target="_blank">
+                📞 Book a Call
+            </a>
+            <a href="mailto:goodenough245@gmail.com?subject=Automation Inquiry"
+               class="btn btn-contact-primary btn-lg">
+                📧 Discuss My Needs
+            </a>
+        </div>
+    </div>
+</section>

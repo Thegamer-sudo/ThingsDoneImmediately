@@ -1,0 +1,221 @@
+﻿@{
+    ViewData["Title"] = "Web Development - Things Done Immediately";
+}
+
+<style>
+    .service-hero {
+        background: linear-gradient(135deg, var(--tdi-dark) 0%, var(--tdi-darker) 100%);
+        padding: 150px 0 100px;
+        text-align: center;
+    }
+
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(255,215,0,0.1);
+        border: 2px solid var(--tdi-accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2rem;
+    }
+
+    .process-step {
+        position: relative;
+        padding-left: 80px;
+        margin-bottom: 40px;
+    }
+
+    .step-number {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60px;
+        height: 60px;
+        background: var(--tdi-accent);
+        color: var(--tdi-dark);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'Bebas Neue';
+    }
+
+    .portfolio-item {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,215,0,0.2);
+        padding: 30px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+        .portfolio-item:hover {
+            border-color: var(--tdi-accent);
+            transform: translateY(-5px);
+        }
+
+    /* SOLID BUTTON STYLES */
+    .btn-contact-primary {
+        background: linear-gradient(135deg, var(--tdi-accent) 0%, var(--tdi-accent-dark) 100%);
+        color: var(--tdi-dark);
+        border: none;
+        font-weight: 700;
+        padding: 14px 35px;
+        border-radius: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-contact-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-contact-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-contact-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--tdi-accent-glow);
+        }
+</style>
+
+<!-- Service Hero -->
+<section class="service-hero">
+    <div class="container">
+        <h1 class="display-1 gold-text mb-4">Web Development</h1>
+        <p class="lead fs-3 mb-4">Your Online Presence Is Your First Impression</p>
+        <p class="fs-5 mb-5">Engage more clients, look professional, and scale globally with custom websites that convert.</p>
+        <a href="https://wa.me/+27763621131?text=Hi! I'm interested in web development services"
+           class="btn btn-contact-primary btn-lg" target="_blank">
+            🌐 Start My Project
+        </a>
+    </div>
+</section>
+
+<!-- Why Website Section -->
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="gold-text mb-3">Why Every Business Needs a Website</h2>
+                <p class="lead">In today's digital world, your website is your 24/7 sales representative.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">🌐</div>
+                <h4 class="gold-text mb-3">Global Reach</h4>
+                <p>Connect with customers worldwide, 24 hours a day, 7 days a week.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">💼</div>
+                <h4 class="gold-text mb-3">Professional Image</h4>
+                <p>Establish credibility and build trust with potential clients.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">📈</div>
+                <h4 class="gold-text mb-3">Business Growth</h4>
+                <p>Generate leads, increase sales, and expand your market presence.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Process -->
+<section class="py-5" style="background: rgba(255,215,0,0.05);">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="gold-text mb-3">Our Development Process</h2>
+                <p class="lead">Fast, efficient, and results-driven - just like our name promises.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4 class="gold-text mb-3">Plan & Strategy</h4>
+                    <p>We analyze your business goals, target audience, and competitive landscape to create a strategic roadmap for your digital presence.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4 class="gold-text mb-3">Design & UX</h4>
+                    <p>Our designers create stunning, user-friendly interfaces that reflect your brand and guide visitors toward conversion.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4 class="gold-text mb-3">Develop & Build</h4>
+                    <p>Using modern technologies like ASP.NET Core, we build fast, secure, and scalable websites optimized for performance.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4 class="gold-text mb-3">Launch & Support</h4>
+                    <p>We handle deployment, testing, and provide ongoing support to ensure your website continues to perform perfectly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section - ONLY ELITE HEALTH CLUB -->
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="gold-text mb-3">Recent Project</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="portfolio-item text-center">
+                    <h4 class="gold-text mb-3">Elite Health Club</h4>
+                    <p class="mb-3">Complete fitness center website with membership system and online payments.</p>
+                    <span class="badge bg-gold text-dark">ASP.NET Core</span>
+                    <span class="badge bg-gold text-dark">Bootstrap 5</span>
+                    <span class="badge bg-gold text-dark">Payment Integration</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-5 text-center" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);">
+    <div class="container py-5">
+        <h2 class="gold-text mb-4">Ready to Build Your Digital Presence?</h2>
+        <p class="lead mb-4">Let's create a website that not only looks amazing but drives real business results.</p>
+        <div class="service-cta-buttons">
+            <a href="https://wa.me/27763621131?text=Hi! I want to discuss my website project"
+               class="btn btn-contact-primary btn-lg" target="_blank">
+                💬 Chat on WhatsApp
+            </a>
+            <a href="mailto:goodenough245@gmail.com?subject=Website Project Inquiry"
+               class="btn btn-contact-primary btn-lg">
+                📧 Send Email
+            </a>
+        </div>
+    </div>
+</section>

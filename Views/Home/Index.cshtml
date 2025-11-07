@@ -1,0 +1,194 @@
+﻿@{
+    ViewData["Title"] = "Things Done Immediately - Get Things Done Fast";
+}
+
+<style>
+    .scrolling-strip {
+        background: var(--tdi-accent);
+        color: var(--tdi-dark);
+        padding: 15px 0;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .scrolling-content {
+        display: inline-block;
+        white-space: nowrap;
+        animation: scroll 20s linear infinite;
+    }
+
+        .scrolling-content span {
+            margin: 0 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+    @@keyframes scroll {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .service-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--tdi-gray);
+        padding: 40px 30px;
+        height: 100%;
+        transition: all 0.3s ease;
+        border-radius: 12px;
+    }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--tdi-accent);
+            box-shadow: 0 10px 30px var(--tdi-accent-glow);
+        }
+
+    /* Fixed Button Spacing */
+    .homepage-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+        .homepage-buttons .btn {
+            min-width: 200px;
+            flex: 1;
+            text-align: center;
+            padding: 14px 25px;
+        }
+
+    @@media (max-width: 768px) {
+        .homepage-buttons {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+            .homepage-buttons .btn {
+                min-width: 100%;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-1 mb-4">
+                    WE GET THINGS<br>
+                    <span class="gold-text">DONE IMMEDIATELY</span>
+                </h1>
+                <p class="lead mb-4">
+                    We help businesses modernize their operations through automation,
+                    web systems, and smart workflows — fast, beautiful, and immediately.
+                </p>
+
+                <!-- FIXED BUTTONS WITH CONSISTENT SIZING -->
+                <div class="homepage-buttons mb-4">
+                    <a href="@Url.Action("WebDevelopment", "Services")" class="btn btn-tdi-outline">
+                        🚀 Build My Website
+                    </a>
+                    <a href="@Url.Action("Automation", "Services")" class="btn btn-tdi-outline">
+                        ⚡ Automate My Business
+                    </a>
+                </div>
+                <div class="homepage-buttons">
+                    <a href="@Url.Action("Branding", "Services")" class="btn btn-tdi-outline">
+                        🎨 Brand & Marketing
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <!-- Sophisticated Visual -->
+                <div class="premium-visual">
+                    <div class="floating-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="visual-item">
+                                <span class="visual-icon">⚡</span>
+                                <span class="visual-text">Instant Deployment</span>
+                            </div>
+                            <div class="visual-item">
+                                <span class="visual-icon">🤖</span>
+                                <span class="visual-text">AI Automation</span>
+                            </div>
+                            <div class="visual-item">
+                                <span class="visual-icon">🚀</span>
+                                <span class="visual-text">Rapid Scaling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scrolling Strip -->
+<section class="scrolling-strip">
+    <div class="scrolling-content">
+        <span>Web Development</span>
+        <span>•</span>
+        <span>AI Automation</span>
+        <span>•</span>
+        <span>Brand Systems</span>
+        <span>•</span>
+        <span>Digital Strategy</span>
+        <span>•</span>
+        <span>Workflow Optimization</span>
+    </div>
+</section>
+
+<!-- Services Preview -->
+<section class="py-5" style="background: var(--tdi-dark);">
+    <div class="container py-5">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="gold-text mb-3">Don't Wait. Automate.</h2>
+                <p class="lead">
+                    From concept to launch, we build systems that work —
+                    beautiful websites, smart automation, and brands that convert.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card text-center">
+                    <h4 class="gold-text mb-3">Web Development</h4>
+                    <p>Custom websites that convert visitors into customers</p>
+                    <a href="@Url.Action("WebDevelopment", "Services")" class="btn btn-tdi-outline btn-sm mt-3">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card text-center">
+                    <h4 class="gold-text mb-3">AI Automation</h4>
+                    <p>Smart workflows that handle repetition automatically</p>
+                    <a href="@Url.Action("Automation", "Services")" class="btn btn-tdi-outline btn-sm mt-3">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card text-center">
+                    <h4 class="gold-text mb-3">Brand & Marketing</h4>
+                    <p>Complete digital identity and growth systems</p>
+                    <a href="@Url.Action("Branding", "Services")" class="btn btn-tdi-outline btn-sm mt-3">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

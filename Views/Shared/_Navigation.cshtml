@@ -1,0 +1,35 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+            <span class="brand-accent">Things Done</span> Immediately
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="@Url.Action("WebDevelopment", "Services")">Web Development</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Automation", "Services")">AI Automation</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Branding", "Services")">Brand & Marketing</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Testimonials")">Success Stories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Contact")">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -7,6 +7,97 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/site.css">
+    <style>
+        .automation-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .flow-diagram {
+            background: rgba(255,215,0,0.05);
+            border: 2px solid #ffb800;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+        }
+
+        .flow-arrow {
+            color: #ffb800;
+            font-size: 2rem;
+            margin: 0 20px;
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            border-color: #ffb800;
+            transform: translateY(-5px);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .use-case {
+            background: rgba(255,255,255,0.03);
+            border-left: 4px solid #ffb800;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .btn-contact-primary {
+            background: linear-gradient(135deg, #ffb800 0%, #e6a600 100%);
+            color: #000;
+            border: none;
+            font-weight: 700;
+            padding: 14px 35px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-contact-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-contact-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-contact-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -52,7 +143,7 @@
             <h1 class="display-1 gold-text mb-4">AI Automation</h1>
             <p class="lead fs-3 mb-4">Let AI Handle the Repetition So You Can Handle Growth</p>
             <p class="fs-5 mb-5">Smart workflows that eliminate manual tasks, reduce errors, and scale your business operations.</p>
-            <a href="https://wa.me/27763621131?text=Hi! I'd like to book a call to discuss automation for my business" 
+            <a href="https://wa.me/27763621131?text=Hi! I'd like to book a call to discuss automation for my business"
                class="btn btn-contact-primary btn-lg" target="_blank">
                 📞 Book a Call
             </a>
@@ -68,7 +159,7 @@
                     <p class="lead">Transform time-consuming manual processes into efficient, error-free automated systems.</p>
                 </div>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="use-case">
@@ -107,7 +198,7 @@
                     <p class="lead">Leveraging the best platforms to build robust automation solutions.</p>
                 </div>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="tool-card">
@@ -163,11 +254,11 @@
             <h2 class="gold-text mb-4">Ready to Automate Your Business?</h2>
             <p class="lead mb-4">Stop wasting time on repetitive tasks. Let us build systems that work while you sleep.</p>
             <div class="service-cta-buttons">
-                <a href="https://wa.me/27763621131?text=Hi! I'd like to book a call to discuss automation" 
+                <a href="https://wa.me/27763621131?text=Hi! I'd like to book a call to discuss automation"
                    class="btn btn-contact-primary btn-lg" target="_blank">
                     📞 Book a Call
                 </a>
-                <a href="mailto:goodenough245@gmail.com?subject=Automation Inquiry" 
+                <a href="mailto:goodenough245@gmail.com?subject=Automation Inquiry"
                    class="btn btn-contact-primary btn-lg">
                     📧 Discuss My Needs
                 </a>

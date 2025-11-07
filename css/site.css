@@ -1,1 +1,673 @@
+:root {
+    /* NEW SOPHISTICATED COLOR PALETTE */
+    --tdi-dark: #0A0A0A;          /* Rich dark instead of pure black */
+    --tdi-darker: #1A1A1A;        /* Dark backgrounds */
+    --tdi-light: #F8F9FA;         /* Clean white */
+    --tdi-accent: #FFB800;        /* Muted gold - sophisticated */
+    --tdi-accent-dark: #E6A600;   /* Darker gold for hover */
+    --tdi-accent-glow: rgba(255, 184, 0, 0.3); /* Subtle glow */
+    --tdi-gray: #2A2A2A;          /* Elegant gray */
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--tdi-dark);
+    color: var(--tdi-light);
+    line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.display-1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+}
+
+/* Premium Navigation */
+.navbar {
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--tdi-gray);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--tdi-light) !important;
+    font-weight: 700;
+}
+
+.brand-accent {
+    color: var(--tdi-accent);
+}
+
+/* Regular nav links get underline effect */
+.nav-link:not(.dropdown-toggle) {
+    color: var(--tdi-light) !important;
+    font-weight: 500;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:not(.dropdown-toggle)::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--tdi-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:not(.dropdown-toggle):hover::after,
+.nav-link:not(.dropdown-toggle).active::after {
+    width: 100%;
+}
+
+.nav-link:not(.dropdown-toggle):hover {
+    color: var(--tdi-accent) !important;
+}
+
+/* Dropdown toggle gets different styling (no underline) */
+.nav-link.dropdown-toggle {
+    color: var(--tdi-light) !important;
+    font-weight: 500;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link.dropdown-toggle:hover {
+    color: var(--tdi-accent) !important;
+}
+
+/* Dropdown Enhancement */
+.dropdown-menu-dark {
+    background: var(--tdi-darker);
+    border: 1px solid var(--tdi-gray);
+    border-radius: 8px;
+}
+
+.dropdown-item {
+    color: var(--tdi-light);
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--tdi-accent);
+    color: var(--tdi-dark);
+}
+
+/* Updated Hero Section Spacing */
+.hero-section {
+    background: linear-gradient(135deg, var(--tdi-dark) 0%, var(--tdi-darker) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px; /* Fixed header spacing */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sophisticated Gold Text */
+.gold-text {
+    color: var(--tdi-accent);
+    text-shadow: 0 0 30px var(--tdi-accent-glow);
+}
+
+/* Updated Buttons - All Outline Style */
+.btn-tdi-outline {
+    background: transparent;
+    color: var(--tdi-light);
+    border: 2px solid var(--tdi-gray);
+    font-weight: 600;
+    padding: 14px 35px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-tdi-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,184,0,0.1), transparent);
+    transition: left 0.5s;
+}
+
+.btn-tdi-outline:hover::before {
+    left: 100%;
+}
+
+.btn-tdi-outline:hover {
+    border-color: var(--tdi-accent);
+    color: var(--tdi-accent);
+    background: rgba(255, 184, 0, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--tdi-accent-glow);
+}
+
+/* Solid Primary Button - NOT FADED */
+.btn-contact-primary {
+    background: linear-gradient(135deg, var(--tdi-accent) 0%, var(--tdi-accent-dark) 100%);
+    color: var(--tdi-dark);
+    border: none;
+    font-weight: 700;
+    padding: 14px 35px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-contact-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-contact-primary:hover::before {
+    left: 100%;
+}
+
+.btn-contact-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px var(--tdi-accent-glow);
+}
+
+/* Premium Visual Elements */
+.premium-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.floating-card {
+    background: rgba(42, 42, 42, 0.6);
+    border: 1px solid var(--tdi-gray);
+    border-radius: 20px;
+    padding: 40px 30px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    animation: float-smooth 6s ease-in-out infinite;
+}
+
+.card-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, var(--tdi-accent-glow), transparent);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.visual-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px 20px;
+    background: rgba(255, 184, 0, 0.1);
+    border-radius: 12px;
+    border-left: 4px solid var(--tdi-accent);
+}
+
+.visual-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.visual-text {
+    font-weight: 600;
+    color: var(--tdi-light);
+}
+
+@keyframes float-smooth {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+/* Scrolling Strip */
+.scrolling-strip {
+    background: var(--tdi-accent);
+    color: var(--tdi-dark);
+    padding: 15px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.scrolling-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
+.scrolling-content span {
+    margin: 0 40px;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Service Cards */
+.service-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--tdi-gray);
+    padding: 40px 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--tdi-accent);
+    box-shadow: 0 10px 30px var(--tdi-accent-glow);
+}
+
+/* Fixed Button Spacing */
+.homepage-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.homepage-buttons .btn {
+    min-width: 200px;
+    flex: 1;
+    text-align: center;
+    padding: 14px 25px;
+}
+
+/* Service Page Button Spacing */
+.service-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-cta-buttons .btn {
+    min-width: 200px;
+    text-align: center;
+}
+
+/* Contact Page Styles */
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+}
+
+.contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--tdi-gray);
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.contact-card:hover {
+    border-color: var(--tdi-accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--tdi-accent-glow);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--tdi-gray);
+    border-radius: 15px;
+    padding: 50px;
+}
+
+.form-control {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid var(--tdi-gray);
+    color: var(--tdi-light);
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--tdi-accent);
+    color: var(--tdi-light);
+    box-shadow: 0 0 0 0.2rem rgba(255,184,0,0.25);
+}
+
+.form-control::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.form-label {
+    color: var(--tdi-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.response-time {
+    background: rgba(255,184,0,0.1);
+    border: 1px solid var(--tdi-accent);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.guarantee-badge {
+    background: var(--tdi-accent);
+    color: var(--tdi-dark);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+/* Social Media Icons */
+.social-icon {
+    color: var(--tdi-light);
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover {
+    color: var(--tdi-accent);
+    transform: translateY(-2px);
+    background: rgba(255, 184, 0, 0.1);
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Fix footer email button */
+footer .btn-tdi-outline {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Fix social icons spacing */
+footer .d-flex.gap-3 {
+    gap: 15px !important;
+}
+
+/* Silk Smooth Loading Animation */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    overflow: hidden;
+}
+
+.loading-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    animation: silkFlow 3s ease-in-out infinite;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.loading-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--tdi-accent);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: elegantPulse 3s ease-in-out infinite;
+    text-shadow: 
+        0 0 20px var(--tdi-accent-glow),
+        0 0 40px rgba(255, 184, 0, 0.3);
+    position: relative;
+}
+
+.loading-text::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--tdi-accent), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes silkFlow {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes elegantPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+        text-shadow: 
+            0 0 20px var(--tdi-accent-glow),
+            0 0 40px rgba(255, 184, 0, 0.3);
+    }
+    25% {
+        transform: scale(1.03);
+        opacity: 1;
+        text-shadow: 
+            0 0 30px var(--tdi-accent-glow),
+            0 0 60px rgba(255, 184, 0, 0.4);
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.9;
+        text-shadow: 
+            0 0 20px var(--tdi-accent-glow),
+            0 0 40px rgba(255, 184, 0, 0.3);
+    }
+    75% {
+        transform: scale(1.02);
+        opacity: 0.95;
+        text-shadow: 
+            0 0 25px var(--tdi-accent-glow),
+            0 0 50px rgba(255, 184, 0, 0.35);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+        text-shadow: 
+            0 0 20px var(--tdi-accent-glow),
+            0 0 40px rgba(255, 184, 0, 0.3);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+}
+
+/* Additional silk particles */
+.loading-screen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+    animation: particleFloat 4s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .display-1 {
+        font-size: 3rem;
+    }
+    
+    .hero-section {
+        min-height: 80vh;
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .premium-visual {
+        margin-top: 50px;
+    }
+    
+    .contact-form {
+        padding: 30px 20px;
+    }
+    
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-tdi-outline {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .homepage-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .homepage-buttons .btn {
+        min-width: 100%;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .service-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .service-cta-buttons .btn {
+        min-width: 250px;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .loading-text {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-text {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+}

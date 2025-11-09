@@ -60,6 +60,10 @@
             border-left: 4px solid #ffb800;
         }
 
+        .expand-content.active {
+            display: block;
+        }
+
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -98,30 +102,26 @@
             transform: translateY(-5px);
         }
 
-        /* NEW STYLES FOR PROJECT IMAGE */
-        .project-image-container {
-            margin: 30px 0;
-            text-align: center;
+        /* CLIENT LOGO STYLES */
+        .client-logo-container {
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid #333;
+            margin-bottom: 20px;
         }
 
-        .project-image {
-            border: 2px solid #ffb800;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.2);
-            transition: transform 0.3s ease;
-            max-width: 100%;
+        .client-logo {
+            max-width: 150px;
             height: auto;
+            filter: brightness(0.9);
         }
 
-        .project-image:hover {
-            transform: scale(1.02);
-        }
-
-        .image-placeholder {
+        .logo-placeholder {
             background: rgba(255,255,255,0.05);
             border: 2px dashed #ffb800;
             border-radius: 10px;
-            padding: 60px 30px;
+            padding: 40px 20px;
             text-align: center;
         }
 
@@ -129,6 +129,47 @@
             font-size: 3rem;
             margin-bottom: 15px;
             display: block;
+        }
+
+        /* PROJECT HIGHLIGHTS */
+        .project-highlights {
+            text-align: left;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            border-left: 3px solid #ffb800;
+        }
+
+        .highlight-icon {
+            font-size: 1.5rem;
+        }
+
+        .highlight-item strong {
+            font-size: 1.3rem;
+            color: #ffb800;
+        }
+
+        /* CASE STUDY CONTENT */
+        .case-study-content {
+            padding-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-content {
+                padding-left: 0;
+                padding-top: 20px;
+            }
+            
+            .client-logo-container {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -182,116 +223,147 @@
     <section class="py-5">
         <div class="container py-5">
             <div class="case-study">
-                <div class="row align-items-center mb-4">
-                    <div class="col-lg-8">
-                        <h2 class="gold-text mb-3">Elite Health Club</h2>
-                        <p class="fs-5">Complete digital transformation for a premium fitness center</p>
-                    </div>
-                </div>
-
-                <!-- PROJECT IMAGE SECTION - ADDED HERE -->
-                <div class="project-image-container">
-                    <img src="images/elite-health-club-project.jpg" 
-                         alt="Elite Health Club Website Project" 
-                         class="img-fluid rounded project-image"
-                         onerror="this.style.display='none'; document.getElementById('imagePlaceholder').style.display='block';">
-                    <div class="image-placeholder" id="imagePlaceholder" style="display: none;">
-                        <div class="placeholder-content">
-                            <span class="placeholder-icon">🏋️‍♂️</span>
-                            <p>Elite Health Club Project Preview</p>
-                            <small class="text-muted">Add elite-health-club-project.jpg to images folder</small>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- The Challenge - Expandable -->
-                <div class="expandable-section">
-                    <div class="expand-toggle" onclick="toggleSection('challenge')">
-                        <span>📋 The Challenge</span>
-                        <span>+</span>
-                    </div>
-                    <div class="expand-content" id="challenge">
-                        <p>Elite Health Club needed to modernize their entire digital presence to handle growing membership demands and streamline their operations.</p>
-                        <ul>
-                            <li>Outdated website hurting credibility</li>
-                            <li>Manual membership processing causing delays</li>
-                            <li>No online booking system for classes</li>
-                            <li>Inefficient payment collection methods</li>
-                            <li>Poor member communication systems</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Our Solution - Expandable -->
-                <div class="expandable-section">
-                    <div class="expand-toggle" onclick="toggleSection('solution')">
-                        <span>🛠️ What We Built</span>
-                        <span>+</span>
-                    </div>
-                    <div class="expand-content" id="solution">
-                        <p>We delivered a complete digital ecosystem tailored to their specific needs:</p>
-
-                        <div class="tech-stack">
-                            <span class="tech-badge">ASP.NET Core MVC</span>
-                            <span class="tech-badge">Bootstrap 5</span>
-                            <span class="tech-badge">Custom Booking System</span>
-                            <span class="tech-badge">Member Portal</span>
-                            <span class="tech-badge">Payment Integration</span>
-                            <span class="tech-badge">Email Automation</span>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Custom Website</h5>
-                                <p>Modern, responsive design showcasing facilities and services with optimized user experience.</p>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Membership System</h5>
-                                <p>Secure member area with profile management, payment history, and class scheduling.</p>
+                <div class="row">
+                    <!-- Logo and Basic Info Side -->
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="client-logo-container">
+                            <img src="images/elite-health-club-logo.png" 
+                                 alt="Elite Health Club Logo" 
+                                 class="client-logo img-fluid"
+                                 onerror="this.style.display='none'; document.getElementById('logoPlaceholder').style.display='block';">
+                            <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">🏋️‍♂️</span>
+                                    <p>Elite Health Club Logo</p>
+                                    <small class="text-muted">Add elite-health-club-logo.png to images folder</small>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Booking Engine</h5>
-                                <p>Real-time class scheduling with capacity management and automatic reminders.</p>
+                        <h3 class="gold-text mt-3">Elite Health Club</h3>
+                        <p class="text-muted">Premium Fitness Center</p>
+                        
+                        <div class="project-highlights mt-4">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">⚡</span>
+                                <div>
+                                    <strong>47%</strong>
+                                    <small class="d-block">Revenue Increase</small>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Admin Dashboard</h5>
-                                <p>Complete backend system for managing members, classes, payments, and communications.</p>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">📈</span>
+                                <div>
+                                    <strong>63%</strong>
+                                    <small class="d-block">Member Growth</small>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">⏱️</span>
+                                <div>
+                                    <strong>80%</strong>
+                                    <small class="d-block">Time Saved</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- The Result - Expandable -->
-                <div class="expandable-section">
-                    <div class="expand-toggle" onclick="toggleSection('result')">
-                        <span>🎯 The Outcome</span>
-                        <span>+</span>
-                    </div>
-                    <div class="expand-content" id="result">
-                        <p>The transformation led to significant operational improvements and member satisfaction.</p>
+                    <!-- Case Study Content Side -->
+                    <div class="col-md-8">
+                        <div class="case-study-content">
+                            <h2 class="gold-text mb-3">Digital Transformation Success</h2>
+                            <p class="lead mb-4">Complete modernization of operations and member experience for a premium fitness center.</p>
 
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Operational Efficiency</h5>
-                                <p>Dramatically reduced administrative workload through automation and streamlined processes.</p>
+                            <!-- The Challenge - Expandable -->
+                            <div class="expandable-section">
+                                <div class="expand-toggle" onclick="toggleSection('challenge')">
+                                    <span>📋 The Challenge</span>
+                                    <span>+</span>
+                                </div>
+                                <div class="expand-content" id="challenge">
+                                    <p>Elite Health Club needed to modernize their entire digital presence to handle growing membership demands and streamline their operations.</p>
+                                    <ul>
+                                        <li>Outdated website hurting credibility</li>
+                                        <li>Manual membership processing causing delays</li>
+                                        <li>No online booking system for classes</li>
+                                        <li>Inefficient payment collection methods</li>
+                                        <li>Poor member communication systems</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Member Experience</h5>
-                                <p>Seamless digital experience from signup to class booking and payments.</p>
-                            </div>
-                        </div>
 
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Business Growth</h5>
-                                <p>Enhanced digital presence attracted new members and improved retention.</p>
+                            <!-- Our Solution - Expandable -->
+                            <div class="expandable-section">
+                                <div class="expand-toggle" onclick="toggleSection('solution')">
+                                    <span>🛠️ What We Built</span>
+                                    <span>+</span>
+                                </div>
+                                <div class="expand-content" id="solution">
+                                    <p>We delivered a complete digital ecosystem tailored to their specific needs:</p>
+
+                                    <div class="tech-stack">
+                                        <span class="tech-badge">ASP.NET Core MVC</span>
+                                        <span class="tech-badge">Bootstrap 5</span>
+                                        <span class="tech-badge">Custom Booking System</span>
+                                        <span class="tech-badge">Member Portal</span>
+                                        <span class="tech-badge">Payment Integration</span>
+                                        <span class="tech-badge">Email Automation</span>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Custom Website</h5>
+                                            <p>Modern, responsive design showcasing facilities and services with optimized user experience.</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Membership System</h5>
+                                            <p>Secure member area with profile management, payment history, and class scheduling.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Booking Engine</h5>
+                                            <p>Real-time class scheduling with capacity management and automatic reminders.</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Admin Dashboard</h5>
+                                            <p>Complete backend system for managing members, classes, payments, and communications.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <h5 class="gold-text">Ongoing Partnership</h5>
-                                <p>Continued collaboration for maintenance and feature enhancements.</p>
+
+                            <!-- The Result - Expandable -->
+                            <div class="expandable-section">
+                                <div class="expand-toggle" onclick="toggleSection('result')">
+                                    <span>🎯 The Outcome</span>
+                                    <span>+</span>
+                                </div>
+                                <div class="expand-content" id="result">
+                                    <p>The transformation led to significant operational improvements and member satisfaction.</p>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Operational Efficiency</h5>
+                                            <p>Dramatically reduced administrative workload through automation and streamlined processes.</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Member Experience</h5>
+                                            <p>Seamless digital experience from signup to class booking and payments.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Business Growth</h5>
+                                            <p>Enhanced digital presence attracted new members and improved retention.</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="gold-text">Ongoing Partnership</h5>
+                                            <p>Continued collaboration for maintenance and feature enhancements.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -434,23 +506,36 @@
     <script src="js/site.js"></script>
     <script>
         function toggleSection(sectionId) {
+            // Close all other sections
+            const allSections = document.querySelectorAll('.expand-content');
+            const allToggles = document.querySelectorAll('.expand-toggle span:last-child');
+            
+            allSections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            allToggles.forEach(toggle => {
+                toggle.textContent = '+';
+            });
+            
+            // Open clicked section
             const content = document.getElementById(sectionId);
             const toggle = content.previousElementSibling;
             const plusMinus = toggle.querySelector('span:last-child');
-
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
                 plusMinus.textContent = '+';
             } else {
-                content.style.display = 'block';
+                content.classList.add('active');
                 plusMinus.textContent = '-';
             }
         }
 
-        // Show placeholder if image fails to load
+        // Show placeholder if logo fails to load
         document.addEventListener('DOMContentLoaded', function() {
-            const img = document.querySelector('.project-image');
-            const placeholder = document.getElementById('imagePlaceholder');
+            const img = document.querySelector('.client-logo');
+            const placeholder = document.getElementById('logoPlaceholder');
             
             if (img && img.complete && img.naturalHeight === 0) {
                 img.style.display = 'none';

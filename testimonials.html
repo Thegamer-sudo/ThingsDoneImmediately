@@ -97,6 +97,39 @@
             border-color: #ffb800;
             transform: translateY(-5px);
         }
+
+        /* NEW STYLES FOR PROJECT IMAGE */
+        .project-image-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .project-image {
+            border: 2px solid #ffb800;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(255, 184, 0, 0.2);
+            transition: transform 0.3s ease;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .project-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-placeholder {
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed #ffb800;
+            border-radius: 10px;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .placeholder-content .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -107,7 +140,7 @@
                 <span class="brand-accent">Things Done</span> Immediately
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
@@ -117,10 +150,10 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Services
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="servicesDropdown">
                             <li><a class="dropdown-item" href="web-development.html">Web Development</a></li>
                             <li><a class="dropdown-item" href="automation.html">AI Automation</a></li>
                             <li><a class="dropdown-item" href="branding.html">Brand & Marketing</a></li>
@@ -153,6 +186,21 @@
                     <div class="col-lg-8">
                         <h2 class="gold-text mb-3">Elite Health Club</h2>
                         <p class="fs-5">Complete digital transformation for a premium fitness center</p>
+                    </div>
+                </div>
+
+                <!-- PROJECT IMAGE SECTION - ADDED HERE -->
+                <div class="project-image-container">
+                    <img src="images/elite-health-club-project.jpg" 
+                         alt="Elite Health Club Website Project" 
+                         class="img-fluid rounded project-image"
+                         onerror="this.style.display='none'; document.getElementById('imagePlaceholder').style.display='block';">
+                    <div class="image-placeholder" id="imagePlaceholder" style="display: none;">
+                        <div class="placeholder-content">
+                            <span class="placeholder-icon">🏋️‍♂️</span>
+                            <p>Elite Health Club Project Preview</p>
+                            <small class="text-muted">Add elite-health-club-project.jpg to images folder</small>
+                        </div>
                     </div>
                 </div>
 
@@ -398,6 +446,17 @@
                 plusMinus.textContent = '-';
             }
         }
+
+        // Show placeholder if image fails to load
+        document.addEventListener('DOMContentLoaded', function() {
+            const img = document.querySelector('.project-image');
+            const placeholder = document.getElementById('imagePlaceholder');
+            
+            if (img && img.complete && img.naturalHeight === 0) {
+                img.style.display = 'none';
+                placeholder.style.display = 'block';
+            }
+        });
     </script>
 </body>
 </html>

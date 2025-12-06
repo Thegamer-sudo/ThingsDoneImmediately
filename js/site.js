@@ -194,3 +194,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+<script>
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || href === '#!') return;
+            
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>

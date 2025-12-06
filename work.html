@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | Things Done Immediately</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== SAME CSS AS INDEX.HTML ===== */
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --black: #000000;
+            --white: #ffffff;
+            --gray-100: #f8f8f8;
+            --gray-200: #e8e8e8;
+            --gray-300: #cccccc;
+            --gray-400: #999999;
+            --gray-500: #666666;
+            --gray-600: #333333;
+            --gray-700: #1a1a1a;
+            --accent: #d4af37;
+            --accent-blue: #0066cc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-600);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+            padding-top: 80px; /* Space for fixed nav */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.2;
+        }
+
+        /* Container System */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* Navigation - SIMPLE & FIXED */
+        .nav-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            padding: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--black);
+        }
+
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--black);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--black);
+            transition: 0.3s;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            width: 100%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 100%;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-700);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--gray-300);
+            padding: 12px 28px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--black);
+        }
+
+        /* Work Page Specific Styles */
+        .work-hero {
+            background: var(--gray-100);
+            padding: 120px 0 80px;
+        }
+
+        .work-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .work-hero p {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Featured Case Study */
+        .featured-case-study {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            margin: 60px 0;
+        }
+
+        .case-study-content {
+            padding: 60px;
+        }
+
+        .case-study-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .case-study-description {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Case Study Stats */
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 30px;
+            background: var(--gray-100);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        /* Case Study Image */
+        .case-study-image {
+            position: relative;
+            min-height: 500px;
+            background: var(--gray-200);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-study-image:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        /* Case Study Details */
+        .case-study-details {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 60px;
+            margin: 60px 0;
+        }
+
+        .detail-section {
+            margin-bottom: 40px;
+        }
+
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .detail-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-section li {
+            color: var(--gray-600);
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .detail-section li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: var(--white);
+            color: var(--black);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--gray-300);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Client Testimonial */
+        .client-testimonial {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 60px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .client-info h4 {
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .client-info p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Future Projects */
+        .future-projects {
+            background: var(--gray-100);
+            padding: 80px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--black);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .project-card p {
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--gray-100);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        /* CTA Section */
+        .work-cta {
+            background: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .work-cta h2 {
+            margin-bottom: 20px;
+        }
+
+        .work-cta p {
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-300);
+            max-width: 400px;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--gray-700);
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .work-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .case-study-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .nav-main {
+                height: 70px;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-top: 1px solid var(--gray-200);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                display: none;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .work-hero {
+                padding: 80px 0 60px;
+            }
+            
+            .work-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .work-hero p {
+                font-size: 1.125rem;
+            }
+            
+            .case-study-content,
+            .case-study-details,
+            .client-testimonial {
+                padding: 40px;
+            }
+            
+            .case-study-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .case-study-image {
+                min-height: 400px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .work-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .case-study-content,
+            .case-study-details,
+            .client-testimonial {
+                padding: 30px;
+            }
+            
+            .project-card {
+                padding: 30px;
+            }
+            
+            .case-study-image {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="nav-main">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Things Done Immediately</a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="web-development.html" class="nav-link">Web Development</a>
+                <a href="automation.html" class="nav-link">Automation</a>
+                <a href="work.html" class="nav-link active">Work</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Work Hero -->
+    <section class="work-hero">
+        <div class="container">
+            <div class="section-header">
+                <h1>Our Work</h1>
+                <p>Real projects delivering tangible results for our clients. See how we transform businesses through digital solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Case Study -->
+    <section>
+        <div class="container">
+            <div class="featured-case-study">
+                <div class="case-study-content">
+                    <h2>Elite Health Club</h2>
+                    <p class="case-study-description">
+                        Complete digital transformation for a premium fitness center, including website development, 
+                        membership system, and business automation solutions.
+                    </p>
+                    
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <div class="stat-number">+63%</div>
+                            <div class="stat-label">Online Membership Signups</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">-80%</div>
+                            <div class="stat-label">Administrative Time</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Booking System Availability</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study-image">
+                    <img src="images/elite-health-club-project.jpg" alt="Elite Health Club Website" class="project-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Details -->
+    <section>
+        <div class="container">
+            <div class="case-study-details">
+                <!-- The Challenge -->
+                <div class="detail-section">
+                    <h3>The Challenge</h3>
+                    <p>Elite Health Club needed to modernize their digital presence to handle growing membership demands and streamline operations.</p>
+                    <ul>
+                        <li>Outdated website damaging business credibility</li>
+                        <li>Manual membership processing causing operational delays</li>
+                        <li>No online booking system for classes and appointments</li>
+                        <li>Inefficient payment collection and management</li>
+                        <li>Poor communication systems with members</li>
+                    </ul>
+                </div>
+                
+                <!-- The Solution -->
+                <div class="detail-section">
+                    <h3>Our Solution</h3>
+                    <p>We delivered a complete digital ecosystem tailored to their specific business needs.</p>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-badge">ASP.NET Core MVC</span>
+                        <span class="tech-badge">Bootstrap 5</span>
+                        <span class="tech-badge">Custom Booking System</span>
+                        <span class="tech-badge">Member Portal</span>
+                        <span class="tech-badge">Payment Integration</span>
+                        <span class="tech-badge">Email Automation</span>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4 style="font-size: 1.25rem; margin-bottom: 15px;">Key Features Implemented</h4>
+                        <ul>
+                            <li>Custom responsive website showcasing facilities and services</li>
+                            <li>Secure member area with profile management and payment history</li>
+                            <li>Real-time class scheduling with capacity management</li>
+                            <li>Automated communication workflows for reminders and updates</li>
+                            <li>Admin dashboard for complete business management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- The Results -->
+                <div class="detail-section">
+                    <h3>The Results</h3>
+                    <p>The digital transformation led to significant improvements in operations and member satisfaction.</p>
+                    <ul>
+                        <li>Dramatically reduced administrative workload through automation</li>
+                        <li>Seamless digital experience from signup to payments</li>
+                        <li>Enhanced digital presence attracted new members and improved retention</li>
+                        <li>Ongoing partnership for maintenance and feature enhancements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonial -->
+    <section>
+        <div class="container">
+            <div class="client-testimonial">
+                <div class="testimonial-text">
+                    "Things Done Immediately delivered exactly what we needed - a professional, 
+                    functional website that works for our business. The attention to detail and 
+                    understanding of our specific requirements was impressive."
+                </div>
+                <div class="client-info">
+                    <h4>Manager</h4>
+                    <p>Elite Health Club</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Projects -->
+    <section class="future-projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Case Studies</h2>
+                <p>We're continuously delivering value to businesses across different industries</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Restaurant Booking System</h3>
+                    <p>Custom reservation and table management system with automated confirmations and reminders.</p>
+                    <span class="project-status">Launching Next Month</span>
+                </div>
+                
+                <div class="project-card">
+                    <h3>AI Customer Service</h3>
+                    <p>Intelligent chatbot and automated support system for handling customer inquiries.</p>
+                    <span class="project-status">Case Study in Progress</span>
+                </div>
+                
+                <div class="project-card">
+                    <h3>E-commerce Automation</h3>
+                    <p>Complete automation system for inventory management, order processing, and customer communication.</p>
+                    <span class="project-status">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work CTA -->
+    <section class="work-cta">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's work together to create your success story. Contact us to discuss your project requirements.</p>
+                <a href="contact.html" class="btn btn-primary">Start a Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Things Done Immediately</h3>
+                    <p>We help businesses modernize their operations through automation, web systems, and smart workflows.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="web-development.html">Web Development</a></li>
+                        <li><a href="automation.html">Business Automation</a></li>
+                        <li><a href="branding.html">Digital Branding</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:goodenough245@gmail.com">goodenough245@gmail.com</a></li>
+                        <li><a href="https://wa.me/27763621131">+27 76 362 1131</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Things Done Immediately. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Image hover effect
+        const projectImage = document.querySelector('.project-image');
+        const imageContainer = document.querySelector('.case-study-image');
+        
+        if (imageContainer && projectImage) {
+            imageContainer.addEventListener('mouseenter', () => {
+                projectImage.style.transform = 'scale(1.05)';
+            });
+            
+            imageContainer.addEventListener('mouseleave', () => {
+                projectImage.style.transform = 'scale(1)';
+            });
+        }
+    </script>
+</body>
+</html>

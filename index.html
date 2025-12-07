@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things Done Immediately - Under Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        
+        .logo-gold {
+            color: #d4af37;
+        }
+        
+        .construction-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: #d4af37;
+        }
+        
+        h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #cccccc;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .message {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #d4af37;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: left;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: #d4af37;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .social-link {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: #d4af37;
+        }
+        
+        .countdown {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            color: #d4af37;
+            margin-top: 3rem;
+            padding: 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .construction-icon {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.75rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            Things Done <span class="logo-gold">Immediately</span>
+        </div>
+        
+        <div class="construction-icon">
+            🛠️
+        </div>
+        
+        <h1>We're Building Something Better</h1>
+        
+        <p class="subtitle">
+            Our website is currently undergoing an exciting transformation to bring you an enhanced digital experience.
+        </p>
+        
+        <div class="message">
+            <p>We're redesigning our digital presence to better serve our clients with web development, business automation, and digital branding solutions.</p>
+            <p style="margin-top: 1rem;">The new site will launch soon with improved features and updated portfolio.</p>
+        </div>
+        
+        <div class="contact-info">
+            <p>For urgent inquiries, please contact us:</p>
+            <a href="mailto:goodenough245@gmail.com" class="contact-item">
+                goodenough245@gmail.com
+            </a>
+            <a href="https://wa.me/27763621131" class="contact-item" target="_blank">
+                +27 76 362 1131 (WhatsApp)
+            </a>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/not_thegamer_in" class="social-link" target="_blank">Instagram</a>
+            <a href="https://twitter.com/not_thegamer_in" class="social-link" target="_blank">Twitter/X</a>
+            <a href="https://github.com/Thegamer-sudo" class="social-link" target="_blank">GitHub</a>
+        </div>
+        
+        <div class="countdown">
+            Coming Back Soon
+        </div>
+    </div>
+
+    <script>
+        // Simple countdown update
+        document.addEventListener('DOMContentLoaded', function() {
+            const countdownElement = document.querySelector('.countdown');
+            const launchDate = new Date('2024-01-15'); // Set your expected launch date
+            
+            function updateCountdown() {
+                const now = new Date();
+                const timeDiff = launchDate - now;
+                
+                if (timeDiff > 0) {
+                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                    countdownElement.textContent = `Launching in approximately ${days} days`;
+                } else {
+                    countdownElement.textContent = 'Launching very soon!';
+                }
+            }
+            
+            updateCountdown();
+            // Update every hour
+            setInterval(updateCountdown, 3600000);
+        });
+    </script>
+</body>
+</html>

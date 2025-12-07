@@ -238,3 +238,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 </script>
+
+// Add this to your existing script
+// Close menu when clicking a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        if (navMenu) navMenu.classList.remove('active');
+    });
+});
+
+// Smooth scroll for anchor links (if you add any)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '#!') return;
+        
+        e.preventDefault();
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});

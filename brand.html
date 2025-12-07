@@ -1,326 +1,910 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brand & Marketing - Things Done Immediately</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Branding - Things Done Immediately</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        .branding-hero {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            padding: 150px 0 100px;
+        /* ===== COMPLETE FIXED CSS ===== */
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System */
+            --black: #000000;
+            --white: #ffffff;
+            --gray-100: #f8f8f8;
+            --gray-200: #e8e8e8;
+            --gray-300: #cccccc;
+            --gray-400: #999999;
+            --gray-500: #666666;
+            --gray-600: #333333;
+            --gray-700: #1a1a1a;
+            --accent: #d4af37;
+            --accent-blue: #0066cc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-600);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+            padding-top: 80px; /* Space for fixed nav */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            color: var(--black);
+            line-height: 1.2;
+        }
+
+        /* Container System */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* Navigation - SIMPLE & FIXED */
+        .nav-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            padding: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--black);
+        }
+
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--black);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--black);
+            transition: 0.3s;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            width: 100%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 100%;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            padding: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .brand-pillar {
-            text-align: center;
-            padding: 40px 20px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid #333;
-            border-radius: 10px;
-            height: 100%;
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
             transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
         }
 
-        .brand-pillar:hover {
-            border-color: #ffb800;
-            transform: translateY(-5px);
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
         }
 
-        .pillar-icon {
-            font-size: 3rem;
+        .btn-primary:hover {
+            background: var(--gray-700);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border-color: var(--gray-300);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--black);
+            border: 2px solid var(--gray-300);
+            padding: 12px 28px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--black);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Services */
+        .services {
+            background: var(--gray-100);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--black);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: var(--gray-500);
             margin-bottom: 20px;
         }
 
-        .social-platform {
-            background: rgba(255,255,255,0.05);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 15px 0;
-            border-left: 4px solid #ffb800;
+        .service-features {
+            list-style: none;
+            padding: 0;
         }
 
-        .btn-contact-primary {
-            background: linear-gradient(135deg, #ffb800 0%, #e6a600 100%);
-            color: #000;
-            border: none;
-            font-weight: 700;
-            padding: 14px 35px;
+        .service-features li {
+            color: var(--gray-600);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-features li:before {
+            content: "—";
+            color: var(--accent);
+        }
+
+        /* Brand Identity Components */
+        .brand-components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .component-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
             border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 40px;
+            text-align: center;
         }
 
-        .btn-contact-primary::before {
-            content: '';
+        .component-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Visual Identity Showcase */
+        .visual-showcase {
+            background: var(--gray-100);
+        }
+
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .color-item {
+            width: 120px;
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .color-value {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        /* Process */
+        .process {
+            background: var(--gray-100);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step {
+            position: relative;
+            padding-top: 48px;
+        }
+
+        .step-number {
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
+            left: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-200);
+            line-height: 1;
         }
 
-        .btn-contact-primary:hover::before {
-            left: 100%;
+        .step h4 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
         }
 
-        .btn-contact-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+        .step p {
+            color: var(--gray-500);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-300);
+            max-width: 400px;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--gray-700);
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .nav-main {
+                height: 70px;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-top: 1px solid var(--gray-200);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                display: none;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                min-height: calc(100vh - 70px);
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                padding: 30px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .brand-components {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <span class="brand-accent">Things Done</span> Immediately
-            </a>
+    <!-- Fixed Navigation -->
+    <nav class="nav-main">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Things Done Immediately</a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="web-development.html">Web Development</a></li>
-                            <li><a class="dropdown-item" href="automation.html">AI Automation</a></li>
-                            <li><a class="dropdown-item" href="branding.html">Brand & Marketing</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="testimonials.html">Success Stories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="web-development.html" class="nav-link">Web Development</a>
+                <a href="automation.html" class="nav-link">Automation</a>
+                <a href="brand.html" class="nav-link active">Brand</a>
+                <a href="work.html" class="nav-link">Work</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="branding-hero">
+    <section class="hero">
         <div class="container">
-            <h1 class="display-1 gold-text mb-4">Brand & Marketing</h1>
-            <p class="lead fs-3 mb-4">Your Brand Needs Eyes, Not Luck</p>
-            <p class="fs-5 mb-5">Complete digital identity systems that attract attention, build trust, and drive growth.</p>
-            <a href="https://wa.me/27763621131?text=Hi! I want to upscale my brand"
-               class="btn btn-contact-primary btn-lg" target="_blank">
-                📈 Upscale My Brand
-            </a>
-        </div>
-    </section>
-
-    <!-- Brand Pillars -->
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="gold-text mb-3">Complete Brand Ecosystem</h2>
-                    <p class="lead">We build brands that people notice, remember, and trust.</p>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="brand-pillar">
-                        <div class="pillar-icon">🎨</div>
-                        <h4 class="gold-text mb-3">Visual Identity</h4>
-                        <p>Logo design, color palettes, typography, and brand guidelines that create instant recognition.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="brand-pillar">
-                        <div class="pillar-icon">📱</div>
-                        <h4 class="gold-text mb-3">Social Presence</h4>
-                        <p>Strategic social media setup, content planning, and engagement systems across all platforms.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="brand-pillar">
-                        <div class="pillar-icon">📊</div>
-                        <h4 class="gold-text mb-3">Campaign Analytics</h4>
-                        <p>Data-driven insights, performance tracking, and optimization strategies for maximum ROI.</p>
-                    </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Digital Branding That Stands Out</h1>
+                <p class="hero-subtitle">
+                    We create compelling brand identities and digital marketing strategies 
+                    that help businesses connect with their audience and drive growth.
+                </p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">Start Your Brand Journey</a>
+                    <a href="#services" class="btn btn-secondary">View Services</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Media Systems -->
-    <section class="py-5" style="background: rgba(255,184,0,0.05);">
-        <div class="container py-5">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="gold-text mb-3">Social Media & Marketing Systems</h2>
-                    <p class="lead">Strategic presence across all relevant platforms with consistent messaging.</p>
-                </div>
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Branding Services</h2>
+                <p>Complete digital branding solutions for modern businesses</p>
             </div>
-
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="social-platform">
-                        <h4 class="gold-text">📸 Instagram & TikTok</h4>
-                        <p>Visual storytelling, reels strategy, and engagement systems for visual platforms.</p>
+            
+            <div class="services-grid">
+                <!-- Brand Identity -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path>
+                        </svg>
                     </div>
+                    <h3>Brand Identity</h3>
+                    <p>Complete visual identity systems including logos, color palettes, typography, and brand guidelines.</p>
+                    <ul class="service-features">
+                        <li>Logo Design</li>
+                        <li>Color Palette Development</li>
+                        <li>Typography Systems</li>
+                        <li>Brand Guidelines</li>
+                    </ul>
+                </div>
 
-                    <div class="social-platform">
-                        <h4 class="gold-text">💼 LinkedIn & Professional</h4>
-                        <p>B2B positioning, thought leadership, and professional network building.</p>
+                <!-- Digital Marketing -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
                     </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategic marketing campaigns and content creation to increase visibility and engagement.</p>
+                    <ul class="service-features">
+                        <li>Content Strategy</li>
+                        <li>Social Media Management</li>
+                        <li>Email Marketing</li>
+                        <li>SEO Optimization</li>
+                    </ul>
+                </div>
 
-                    <div class="social-platform">
-                        <h4 class="gold-text">📧 Email Marketing</h4>
-                        <p>Automated sequences, newsletter systems, and customer retention campaigns.</p>
+                <!-- Visual Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                            <line x1="7" y1="2" x2="7" y2="22"></line>
+                            <line x1="17" y1="2" x2="17" y2="22"></line>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <line x1="2" y1="7" x2="7" y2="7"></line>
+                            <line x1="2" y1="17" x2="7" y2="17"></line>
+                            <line x1="17" y1="17" x2="22" y2="17"></line>
+                            <line x1="17" y1="7" x2="22" y2="7"></line>
+                        </svg>
                     </div>
-
-                    <div class="social-platform">
-                        <h4 class="gold-text">🎯 Content Strategy</h4>
-                        <p>Content calendars, posting schedules, and engagement optimization.</p>
-                    </div>
+                    <h3>Visual Design</h3>
+                    <p>Professional design assets for digital and print applications, ensuring brand consistency.</p>
+                    <ul class="service-features">
+                        <li>Website Design</li>
+                        <li>Marketing Materials</li>
+                        <li>Social Media Graphics</li>
+                        <li>Presentation Design</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Results Focus -->
-    <section class="py-5 text-center">
-        <div class="container py-5">
-            <h2 class="gold-text mb-4">Data-Driven Brand Growth</h2>
-            <p class="lead mb-4">We don't just create pretty designs - we build systems that deliver measurable results.</p>
-
-            <div class="row g-4 mt-5">
-                <div class="col-md-3">
-                    <h3 class="gold-text">+40%</h3>
-                    <p>Average brand recognition increase</p>
+    <!-- Brand Components -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Brand Identity Components</h2>
+                <p>Every element working together to create a cohesive brand experience</p>
+            </div>
+            
+            <div class="brand-components">
+                <div class="component-card">
+                    <div class="component-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2a14.5 14.5 0 00 0 20 14.5 14.5 0 00 0-20"></path>
+                            <path d="M2 12h20"></path>
+                        </svg>
+                    </div>
+                    <h3>Logo Systems</h3>
+                    <p>Primary, secondary, and alternative logos with clear usage guidelines.</p>
                 </div>
-                <div class="col-md-3">
-                    <h3 class="gold-text">+60%</h3>
-                    <p>Social media engagement growth</p>
+                
+                <div class="component-card">
+                    <div class="component-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3>Color Palette</h3>
+                    <p>Strategic color systems that reflect brand personality and ensure accessibility.</p>
                 </div>
-                <div class="col-md-3">
-                    <h3 class="gold-text">+35%</h3>
-                    <p>Lead generation improvement</p>
-                </div>
-                <div class="col-md-3">
-                    <h3 class="gold-text">2-3x</h3>
-                    <p>Return on marketing investment</p>
+                
+                <div class="component-card">
+                    <div class="component-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                            <line x1="9" y1="20" x2="15" y2="20"></line>
+                            <line x1="12" y1="4" x2="12" y2="20"></line>
+                        </svg>
+                    </div>
+                    <h3>Typography</h3>
+                    <p>Font families and hierarchy systems for consistent communication.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="py-5 text-center" style="background: rgba(255,184,0,0.05);">
-        <div class="container py-5">
-            <h2 class="gold-text mb-4">Ready to Build Your Digital Identity?</h2>
-            <p class="lead mb-4">Let's create a brand that stands out, attracts customers, and drives business growth.</p>
-            <div class="service-cta-buttons">
-                <a href="https://wa.me/27763621131?text=Hi! I want to upscale my brand"
-                   class="btn btn-contact-primary btn-lg" target="_blank">
-                    📈 Start My Brand
-                </a>
-                <a href="mailto:goodenough245@gmail.com?subject=Branding Inquiry"
-                   class="btn btn-contact-primary btn-lg">
-                    📧 Get Proposal
-                </a>
+    <!-- Visual Identity Showcase -->
+    <section class="visual-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visual Identity Elements</h2>
+                <p>Example color palette showing our approach to brand color systems</p>
+            </div>
+            
+            <div class="color-palette">
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #000000;"></div>
+                    <div class="color-name">Primary Black</div>
+                    <div class="color-value">#000000</div>
+                </div>
+                
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #ffffff; border: 2px solid var(--gray-200);"></div>
+                    <div class="color-name">Pure White</div>
+                    <div class="color-value">#FFFFFF</div>
+                </div>
+                
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #d4af37;"></div>
+                    <div class="color-name">Accent Gold</div>
+                    <div class="color-value">#D4AF37</div>
+                </div>
+                
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #666666;"></div>
+                    <div class="color-name">Neutral Gray</div>
+                    <div class="color-value">#666666</div>
+                </div>
+                
+                <div class="color-item">
+                    <div class="color-swatch" style="background: #f8f8f8;"></div>
+                    <div class="color-name">Light Background</div>
+                    <div class="color-value">#F8F8F8</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Branding Process</h2>
+                <p>A strategic approach to developing memorable brand identities</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h4>Brand Discovery</h4>
+                    <p>Understanding your business, audience, and competitive landscape through research and workshops.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h4>Strategy Development</h4>
+                    <p>Creating brand positioning, messaging, and visual direction based on insights.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h4>Design Execution</h4>
+                    <p>Developing visual identity elements and applying them across touchpoints.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h4>Implementation</h4>
+                    <p>Creating brand guidelines and supporting implementation across all channels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Build Your Brand</h2>
+                <p>Ready to create a brand that truly represents your business?</p>
+            </div>
+            
+            <div class="btn-group">
+                <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                <a href="mailto:goodenough245@gmail.com" class="btn btn-secondary">Email Us</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5 border-top gold-border">
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h4 class="gold-text mb-3">Things Done Immediately</h4>
-                    <p class="mb-3">We help businesses modernize their operations through automation, web systems, and smart workflows.</p>
-                    <p class="motto">🚀 <strong>Don't wait. Automate.</strong></p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Things Done Immediately</h3>
+                    <p>We help businesses modernize their operations through automation, web systems, and smart workflows.</p>
                 </div>
                 
-                <div class="col-lg-2 mb-4">
-                    <h5 class="gold-text mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="web-development.html" class="text-white text-decoration-none">Web Development</a></li>
-                        <li class="mb-2"><a href="automation.html" class="text-white text-decoration-none">Automation</a></li>
-                        <li class="mb-2"><a href="testimonials.html" class="text-white text-decoration-none">Success Stories</a></li>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="web-development.html">Web Development</a></li>
+                        <li><a href="automation.html">Business Automation</a></li>
+                        <li><a href="brand.html">Digital Branding</a></li>
                     </ul>
                 </div>
                 
-                <div class="col-lg-3 mb-4">
-                    <h5 class="gold-text mb-3">Services</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">Custom Web Development</li>
-                        <li class="mb-2">AI & Workflow Automation</li>
-                        <li class="mb-2">Brand Identity Systems</li>
-                        <li class="mb-2">Digital Marketing</li>
-                        <li class="mb-2">Business Process Optimization</li>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:goodenough245@gmail.com">goodenough245@gmail.com</a></li>
+                        <li><a href="https://wa.me/27763621131">+27 76 362 1131</a></li>
                     </ul>
-                </div>
-                
-                <div class="col-lg-3 mb-4">
-                    <h5 class="gold-text mb-3">Get In Touch</h5>
-                    <div class="d-grid gap-3">
-                        <a href="mailto:goodenough245@gmail.com" class="btn btn-tdi-outline">
-                            📧 Email Us
-                        </a>
-                        
-                        <div class="d-flex justify-content-center gap-3">
-                            <a href="https://wa.me/27763621131" class="social-icon" target="_blank" title="WhatsApp">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.189-1.248-6.189-3.515-8.444"/></svg>
-                            </a>
-                            <a href="https://www.instagram.com/not_thegamer_in/" class="social-icon" target="_blank" title="Instagram">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                            </a>
-                            <a href="https://x.com/not_thegamer_in" class="social-icon" target="_blank" title="X/Twitter">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                            </a>
-                            <a href="https://t.me/Thegamer_in" class="social-icon" target="_blank" title="Telegram">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.894 7.291l-1.803 8.479c-.125.586-.463.73-.935.456l-2.589-1.908-1.247 1.201c-.138.138-.252.252-.516.252l.184-2.615 4.808-4.371c.21-.188-.045-.292-.325-.104l-5.946 3.758-2.557-.799c-.626-.196-.637-.626.132-.924l9.923-3.827c.521-.188.98.125.81.924z"/></svg>
-                            </a>
-                            <a href="https://www.linkedin.com/company/thingsdoneimmediately/about/?viewAsMember=true" class="social-icon" target="_blank" title="LinkedIn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            </a>
-                            <a href="https://www.facebook.com/ThingsDoneImmediately/" class="social-icon" target="_blank" title="Facebook">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                            </a>
-                            <a href="https://github.com/Thegamer-sudo" class="social-icon" target="_blank" title="GitHub">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
             
-            <hr class="my-4 gold-border">
-            
-            <div class="row align-items-center">
-                <div class="col-md-12 text-center">
-                    <p class="mb-0">&copy; 2024 Things Done Immediately. All rights reserved.</p>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Things Done Immediately. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/site.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '#!') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

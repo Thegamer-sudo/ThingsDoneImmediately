@@ -31,7 +31,6 @@
             --gray-600: #333333;
             --gray-700: #1a1a1a;
             --accent: #d4af37;
-            --accent-blue: #0066cc;
         }
 
         body {
@@ -58,7 +57,7 @@
             width: 100%;
         }
 
-        /* Navigation - SIMPLE & FIXED */
+        /* Navigation - Clean & Fixed */
         .nav-main {
             position: fixed;
             top: 0;
@@ -67,11 +66,9 @@
             background: var(--white);
             border-bottom: 1px solid var(--gray-200);
             z-index: 1000;
-            padding: 0;
             height: 80px;
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .nav-container {
@@ -140,21 +137,20 @@
             transition: 0.3s;
         }
 
-        /* Sections */
+        /* Sections - TIGHT SPACING */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
             width: 100%;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
-            max-width: 100%;
+            margin-bottom: 40px;
         }
 
         .section-header h2 {
             font-size: 2.5rem;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .section-header p {
@@ -164,12 +160,13 @@
             margin: 0 auto;
         }
 
-        /* Hero Section */
+        /* Hero Section - NO GAP */
         .hero {
             min-height: calc(100vh - 80px);
             display: flex;
             align-items: center;
             padding: 0;
+            margin-top: -80px; /* Pulls content right under nav */
         }
 
         .hero-content {
@@ -181,14 +178,14 @@
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.1;
         }
 
         .hero-subtitle {
             font-size: 1.25rem;
             color: var(--gray-500);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -230,17 +227,6 @@
             transform: translateY(-2px);
         }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--black);
-            border: 2px solid var(--gray-300);
-            padding: 12px 28px;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--black);
-        }
-
         .btn-group {
             display: flex;
             gap: 16px;
@@ -256,8 +242,8 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .service-card {
@@ -269,8 +255,8 @@
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .service-icon {
@@ -281,7 +267,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .service-icon svg {
@@ -292,25 +278,27 @@
 
         .service-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .service-card p {
             color: var(--gray-500);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .service-features {
             list-style: none;
             padding: 0;
+            margin-top: 16px;
         }
 
         .service-features li {
             color: var(--gray-600);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.95rem;
         }
 
         .service-features li:before {
@@ -318,7 +306,7 @@
             color: var(--accent);
         }
 
-        /* Featured Work */
+        /* Featured Work - COMPACT */
         .featured-work {
             background: var(--white);
         }
@@ -326,7 +314,7 @@
         .case-study {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 40px;
             align-items: center;
             background: var(--gray-100);
             border-radius: 12px;
@@ -334,26 +322,25 @@
         }
 
         .case-study-content {
-            padding: 60px;
+            padding: 40px;
         }
 
         .case-study-content h3 {
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .case-study-description {
             font-size: 1.125rem;
             color: var(--gray-500);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             line-height: 1.6;
         }
 
         .case-study-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 40px;
+            gap: 20px;
         }
 
         .stat {
@@ -361,10 +348,10 @@
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: var(--black);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .stat-label {
@@ -374,21 +361,11 @@
 
         .case-study-image {
             height: 100%;
-            min-height: 500px;
+            min-height: 250px;
             background: var(--gray-200);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .case-study:hover .project-image {
-            transform: scale(1.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Process */
@@ -399,20 +376,20 @@
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .step {
             position: relative;
-            padding-top: 48px;
+            padding-top: 40px;
         }
 
         .step-number {
             position: absolute;
             top: 0;
             left: 0;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--gray-200);
             line-height: 1;
@@ -420,11 +397,12 @@
 
         .step h4 {
             font-size: 1.25rem;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .step p {
             color: var(--gray-500);
+            font-size: 0.95rem;
         }
 
         /* Contact */
@@ -438,7 +416,7 @@
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .form-control {
@@ -465,31 +443,32 @@
         .footer {
             background: var(--black);
             color: var(--white);
-            padding: 60px 0 40px;
+            padding: 60px 0 30px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer-brand h3 {
             font-size: 1.5rem;
             color: var(--white);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .footer-brand p {
             color: var(--gray-300);
             max-width: 400px;
+            font-size: 0.95rem;
         }
 
         .footer-links h4 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--white);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -500,13 +479,14 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .footer-links a {
             color: var(--gray-300);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
@@ -514,7 +494,7 @@
         }
 
         .footer-bottom {
-            padding-top: 40px;
+            padding-top: 30px;
             border-top: 1px solid var(--gray-700);
             text-align: center;
             color: var(--gray-400);
@@ -532,7 +512,7 @@
             }
             
             .case-study-image {
-                min-height: 400px;
+                min-height: 200px;
                 order: -1;
             }
             
@@ -561,10 +541,10 @@
                 width: 100%;
                 background: var(--white);
                 flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
+                padding: 1.5rem;
+                gap: 1rem;
                 border-top: 1px solid var(--gray-200);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.08);
                 display: none;
                 z-index: 999;
             }
@@ -579,6 +559,7 @@
             
             .hero {
                 min-height: calc(100vh - 70px);
+                margin-top: -70px;
             }
             
             .hero-title {
@@ -587,6 +568,7 @@
             
             .hero-subtitle {
                 font-size: 1.125rem;
+                margin-bottom: 24px;
             }
             
             .btn-group {
@@ -596,7 +578,7 @@
             
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 280px;
             }
             
             .case-study-content {
@@ -605,16 +587,17 @@
             
             .case-study-stats {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 16px;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
             }
             
             .process-steps {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
         }
 
@@ -625,6 +608,7 @@
             
             .section-header h2 {
                 font-size: 2rem;
+                margin-bottom: 8px;
             }
             
             .service-card {
@@ -633,38 +617,43 @@
             
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .case-study-image {
-                min-height: 300px;
+                min-height: 150px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Fixed Navigation -->
-<nav class="nav-main">
-    <div class="nav-container">
-        <a href="index.html" class="nav-brand">Things Done Immediately</a>
-        
-        <button class="mobile-toggle" id="mobileToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-       <div class="nav-menu" id="navMenu">
-    <a href="index.html" class="nav-link active">Home</a>
-    <a href="web-development.html" class="nav-link">Web Development</a>
-    <a href="automation.html" class="nav-link">Automation</a>
-    <a href="brand.html" class="nav-link">Brand</a>
-    <a href="work.html" class="nav-link">Work</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-</div>
-    </div>
-</nav>
+    <nav class="nav-main">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Things Done Immediately</a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="web-development.html" class="nav-link">Web Development</a>
+                <a href="automation.html" class="nav-link">Automation</a>
+                <a href="brand.html" class="nav-link">Brand</a>
+                <a href="work.html" class="nav-link">Work</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - RIGHT UNDER NAV -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -718,7 +707,7 @@
                         </svg>
                     </div>
                     <h3>Business Automation</h3>
-                    <p>Automate repetitive tasks and workflows using n8n, Zapier, and custom solutions to save time and reduce errors.</p>
+                    <p>Automate repetitive tasks and workflows to save time and reduce errors.</p>
                     <ul class="service-features">
                         <li>Workflow Automation</li>
                         <li>Process Optimization</li>
@@ -736,19 +725,19 @@
                         </svg>
                     </div>
                     <h3>Digital Branding</h3>
-                    <p>Complete brand identity systems and digital marketing strategies to help your business stand out and grow.</p>
+                    <p>Complete brand identity systems and digital marketing strategies.</p>
                     <ul class="service-features">
                         <li>Brand Identity</li>
                         <li>Digital Marketing</li>
                         <li>Content Strategy</li>
-                        <li>Social Media Management</li>
+                        <li>Social Media</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-       <!-- Featured Work -->
+    <!-- Featured Work -->
     <section class="featured-work" id="work">
         <div class="container">
             <div class="section-header">
@@ -762,8 +751,7 @@
                     <p class="case-study-description">
                         Complete website development and automation system implementation 
                         for a growing fitness business. The project included a custom 
-                        membership portal, class booking system, and automated 
-                        communication workflows.
+                        membership portal, class booking system, and automated workflows.
                     </p>
                     
                     <div class="case-study-stats">
@@ -783,10 +771,9 @@
                 </div>
                 
                 <div class="case-study-image">
-                    <div style="width: 100%; height: 300px; background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px;">
-                        <div style="font-size: 2rem; margin-bottom: 15px; color: var(--gray-600);">Elite Health Club</div>
-                        <div style="color: var(--gray-500); text-align: center; max-width: 400px;">
-                            Custom Website & Automation System<br>
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                        <div style="font-size: 1.5rem; margin-bottom: 8px; color: var(--gray-600); font-weight: 600;">Elite Health Club</div>
+                        <div style="color: var(--gray-500); font-size: 0.95rem;">
                             Complete Digital Transformation
                         </div>
                     </div>
@@ -807,22 +794,22 @@
                 <div class="step">
                     <div class="step-number">01</div>
                     <h4>Discovery</h4>
-                    <p>Understanding your business goals, challenges, and technical requirements.</p>
+                    <p>Understanding your business goals, challenges, and requirements.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">02</div>
                     <h4>Strategy</h4>
-                    <p>Developing a tailored solution architecture and detailed project plan.</p>
+                    <p>Developing a tailored solution architecture and project plan.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">03</div>
                     <h4>Execution</h4>
-                    <p>Building and testing the solution with regular progress updates.</p>
+                    <p>Building and testing with regular progress updates.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">04</div>
                     <h4>Delivery</h4>
-                    <p>Launching the solution and providing ongoing support and optimization.</p>
+                    <p>Launching and providing ongoing support and optimization.</p>
                 </div>
             </div>
         </div>
@@ -837,7 +824,7 @@
             </div>
             
             <div class="contact-form">
-                <form action="https://formspree.io/f/your-form-id" method="POST">
+                <form id="contactForm" method="POST">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                     </div>
@@ -866,13 +853,13 @@
                 </div>
                 
                 <div class="footer-links">
-    <h4>Services</h4>
-    <ul>
-        <li><a href="web-development.html">Web Development</a></li>
-        <li><a href="automation.html">Business Automation</a></li>
-        <li><a href="brand.html">Digital Branding</a></li>
-    </ul>
-</div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="web-development.html">Web Development</a></li>
+                        <li><a href="automation.html">Business Automation</a></li>
+                        <li><a href="brand.html">Digital Branding</a></li>
+                    </ul>
+                </div>
                 
                 <div class="footer-links">
                     <h4>Contact</h4>
@@ -895,7 +882,7 @@
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.getElementById('navMenu');
         
-        if (mobileToggle) {
+        if (mobileToggle && navMenu) {
             mobileToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 navMenu.classList.toggle('active');
@@ -904,7 +891,7 @@
         
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
+            if (navMenu && !e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
             }
         });
@@ -912,7 +899,7 @@
         // Close menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
             });
         });
         
@@ -934,15 +921,19 @@
         });
         
         // Form submission
-        const contactForm = document.querySelector('.contact-form form');
+        const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                // Add your form submission logic here
-                alert('Thank you for your message. We will get back to you soon!');
+                alert('Thank you for your message! We\'ll contact you within 24 hours.');
                 this.reset();
             });
         }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Things Done Immediately - Site loaded');
+        });
     </script>
 </body>
 </html>

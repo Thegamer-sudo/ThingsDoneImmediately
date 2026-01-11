@@ -1,940 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="/favicon.png" type="image/png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Things Done Immediately | Digital Solutions Agency</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ===== COMPLETE FIXED CSS ===== */
-        /* Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Color System */
-            --black: #000000;
-            --white: #ffffff;
-            --gray-100: #f8f8f8;
-            --gray-200: #e8e8e8;
-            --gray-300: #cccccc;
-            --gray-400: #999999;
-            --gray-500: #666666;
-            --gray-600: #333333;
-            --gray-700: #1a1a1a;
-            --accent: #d4af37;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--gray-600);
-            line-height: 1.6;
-            background: var(--white);
-            overflow-x: hidden;
-            padding-top: 80px; /* Space for fixed nav */
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            color: var(--black);
-            line-height: 1.2;
-        }
-
-        /* Container System */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            width: 100%;
-        }
-
-        /* Navigation - Clean & Fixed */
-        .nav-main {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--white);
-            border-bottom: 1px solid var(--gray-200);
-            z-index: 1000;
-            height: 80px;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--black);
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--gray-600);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--black);
-        }
-
-        .nav-link.active:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--black);
-        }
-
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--black);
-            transition: 0.3s;
-        }
-
-        /* Sections - TIGHT SPACING */
-        section {
-            padding: 80px 0;
-            width: 100%;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-        }
-
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--gray-500);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Hero Section - NO GAP */
-        .hero {
-            min-height: calc(100vh - 80px);
-            display: flex;
-            align-items: center;
-            padding: 0;
-            margin-top: -80px; /* Pulls content right under nav */
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-500);
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--gray-700);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--black);
-            border-color: var(--gray-300);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--black);
-            transform: translateY(-2px);
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* Services */
-        .services {
-            background: var(--gray-100);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--gray-100);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .service-icon svg {
-            width: 24px;
-            height: 24px;
-            color: var(--black);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
-        .service-card p {
-            color: var(--gray-500);
-            margin-bottom: 16px;
-        }
-
-        .service-features {
-            list-style: none;
-            padding: 0;
-            margin-top: 16px;
-        }
-
-        .service-features li {
-            color: var(--gray-600);
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-        }
-
-        .service-features li:before {
-            content: "—";
-            color: var(--accent);
-        }
-
-        /* Featured Work - COMPACT */
-        .featured-work {
-            background: var(--white);
-        }
-
-        .case-study {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            background: var(--gray-100);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .case-study-content {
-            padding: 40px;
-        }
-
-        .case-study-content h3 {
-            font-size: 2rem;
-            margin-bottom: 16px;
-        }
-
-        .case-study-description {
-            font-size: 1.125rem;
-            color: var(--gray-500);
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .case-study-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--black);
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-        }
-
-        .case-study-image {
-            height: 100%;
-            min-height: 250px;
-            background: var(--gray-200);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Process */
-        .process {
-            background: var(--gray-100);
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .step {
-            position: relative;
-            padding-top: 40px;
-        }
-
-        .step-number {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--gray-200);
-            line-height: 1;
-        }
-
-        .step h4 {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
-        }
-
-        .step p {
-            color: var(--gray-500);
-            font-size: 0.95rem;
-        }
-
-        /* Contact */
-        .contact {
-            background: var(--white);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 14px 16px;
-            font-size: 1rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 4px;
-            transition: border-color 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--black);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--black);
-            color: var(--white);
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            color: var(--white);
-            margin-bottom: 16px;
-        }
-
-        .footer-brand p {
-            color: var(--gray-300);
-            max-width: 400px;
-            font-size: 0.95rem;
-        }
-
-        .footer-links h4 {
-            font-size: 0.95rem;
-            color: var(--white);
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-
-        .footer-links a {
-            color: var(--gray-300);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            padding-top: 30px;
-            border-top: 1px solid var(--gray-700);
-            text-align: center;
-            color: var(--gray-400);
-            font-size: 0.875rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .case-study {
-                grid-template-columns: 1fr;
-            }
-            
-            .case-study-image {
-                min-height: 200px;
-                order: -1;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            
-            .nav-main {
-                height: 70px;
-            }
-            
-            .mobile-toggle {
-                display: flex;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                padding: 1.5rem;
-                gap: 1rem;
-                border-top: 1px solid var(--gray-200);
-                box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-                display: none;
-                z-index: 999;
-            }
-            
-            .nav-menu.active {
-                display: flex;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .hero {
-                min-height: calc(100vh - 70px);
-                margin-top: -70px;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.125rem;
-                margin-bottom: 24px;
-            }
-            
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 280px;
-            }
-            
-            .case-study-content {
-                padding: 30px;
-            }
-            
-            .case-study-stats {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .process-steps {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-                margin-bottom: 8px;
-            }
-            
-            .service-card {
-                padding: 30px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .case-study-image {
-                min-height: 150px;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Things Done Immediately — Relaunching</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #111;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 700px;
+      padding: 40px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .time-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #888;
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 60%);
+      filter: blur(80px);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translate(-50px, -50px); }
+      50% { transform: translate(50px, 50px); }
+      100% { transform: translate(-50px, -50px); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Fixed Navigation -->
-    <nav class="nav-main">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Things Done Immediately</a>
-            
-            <button class="mobile-toggle" id="mobileToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="web-development.html" class="nav-link">Web Development</a>
-                <a href="automation.html" class="nav-link">Automation</a>
-                <a href="brand.html" class="nav-link">Brand</a>
-                <a href="work.html" class="nav-link">Work</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section - RIGHT UNDER NAV -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Digital solutions<br>
-                    that deliver results
-                </h1>
-                <p class="hero-subtitle">
-                    We design and develop custom web solutions and automation systems 
-                    that help businesses operate more efficiently and grow revenue.
-                </p>
-                <div class="btn-group">
-                    <a href="#work" class="btn btn-primary">View Our Work</a>
-                    <a href="#contact" class="btn btn-secondary">Start a Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="glow"></div>
 
-    <!-- Services -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>What We Do</h2>
-                <p>Comprehensive digital solutions tailored to your business needs</p>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Web Development -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Custom websites and applications built with modern technologies for optimal performance and user experience.</p>
-                    <ul class="service-features">
-                        <li>Custom Business Websites</li>
-                        <li>E-commerce Solutions</li>
-                        <li>Web Applications</li>
-                        <li>Responsive Design</li>
-                    </ul>
-                </div>
+  <div class="container">
+    <h1>Things Done Immediately</h1>
+    <p>
+      We are rebuilding something powerful.<br>
+      A new system for speed, growth, and digital dominance is coming.
+    </p>
 
-                <!-- Automation -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                    </div>
-                    <h3>Business Automation</h3>
-                    <p>Automate repetitive tasks and workflows to save time and reduce errors.</p>
-                    <ul class="service-features">
-                        <li>Workflow Automation</li>
-                        <li>Process Optimization</li>
-                        <li>API Integration</li>
-                        <li>Data Management</li>
-                    </ul>
-                </div>
+    <div class="timer">
+      <div class="time-box">
+        <div id="hours">24</div>
+        <div class="label">Hours</div>
+      </div>
+      <div class="time-box">
+        <div id="minutes">00</div>
+        <div class="label">Minutes</div>
+      </div>
+      <div class="time-box">
+        <div id="seconds">00</div>
+        <div class="label">Seconds</div>
+      </div>
+    </div>
+  </div>
 
-                <!-- Branding -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
-                        </svg>
-                    </div>
-                    <h3>Digital Branding</h3>
-                    <p>Complete brand identity systems and digital marketing strategies.</p>
-                    <ul class="service-features">
-                        <li>Brand Identity</li>
-                        <li>Digital Marketing</li>
-                        <li>Content Strategy</li>
-                        <li>Social Media</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <script>
+    const countdownTime = 24 * 60 * 60; // 24 hours in seconds
+    let timeLeft = countdownTime;
 
-    <!-- Featured Work -->
-    <section class="featured-work" id="work">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured Project</h2>
-                <p>Digital transformation for a premium fitness center</p>
-            </div>
-            
-            <div class="case-study">
-                <div class="case-study-content">
-                    <h3>Elite Health Club</h3>
-                    <p class="case-study-description">
-                        Complete website development and automation system implementation 
-                        for a growing fitness business. The project included a custom 
-                        membership portal, class booking system, and automated workflows.
-                    </p>
-                    
-                    <div class="case-study-stats">
-                        <div class="stat">
-                            <div class="stat-number">+63%</div>
-                            <div class="stat-label">Online Signups</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">-80%</div>
-                            <div class="stat-label">Admin Time</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Satisfaction</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-study-image">
-                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
-                        <div style="font-size: 1.5rem; margin-bottom: 8px; color: var(--gray-600); font-weight: 600;">Elite Health Club</div>
-                        <div style="color: var(--gray-500); font-size: 0.95rem;">
-                            Complete Digital Transformation
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
 
-    <!-- Process -->
-    <section class="process" id="process">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Process</h2>
-                <p>A structured approach to delivering exceptional results</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <h4>Discovery</h4>
-                    <p>Understanding your business goals, challenges, and requirements.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <h4>Strategy</h4>
-                    <p>Developing a tailored solution architecture and project plan.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <h4>Execution</h4>
-                    <p>Building and testing with regular progress updates.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">04</div>
-                    <h4>Delivery</h4>
-                    <p>Launching and providing ongoing support and optimization.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    function updateTimer() {
+      const hours = Math.floor(timeLeft / 3600);
+      const minutes = Math.floor((timeLeft % 3600) / 60);
+      const seconds = timeLeft % 60;
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Start a Project</h2>
-                <p>Let's discuss how we can help your business grow</p>
-            </div>
-            
-            <div class="contact-form">
-                <form id="contactForm" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="company" class="form-control" placeholder="Company (Optional)">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" class="form-control" placeholder="Tell us about your project" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minutesEl.textContent = String(minutes).padStart(2, "0");
+      secondsEl.textContent = String(seconds).padStart(2, "0");
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Things Done Immediately</h3>
-                    <p>We help businesses modernize their operations through automation, web systems, and smart workflows.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="web-development.html">Web Development</a></li>
-                        <li><a href="automation.html">Business Automation</a></li>
-                        <li><a href="brand.html">Digital Branding</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="mailto:goodenough245@gmail.com">goodenough245@gmail.com</a></li>
-                        <li><a href="https://wa.me/27763621131">+27 76 362 1131</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Things Done Immediately. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+      if (timeLeft > 0) timeLeft--;
+    }
 
-    <!-- JavaScript -->
-    <script>
-        // Mobile menu toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        if (mobileToggle && navMenu) {
-            mobileToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
-            });
-        }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (navMenu && !e.target.closest('.nav-container') && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
-        });
-        
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu) navMenu.classList.remove('active');
-            });
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href === '#' || href === '#!') return;
-                
-                e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! We\'ll contact you within 24 hours.');
-                this.reset();
-            });
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Things Done Immediately - Site loaded');
-        });
-    </script>
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+
 </body>
 </html>
